@@ -1,0 +1,101 @@
+@import url(http://fonts.googleapis.com/css?family=Chango);
+
+body	{font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+	background-color: #edede3;
+	background-image: url(back.png);
+	margin: 0}
+
+h1	{font-size: 38px;
+	margin-top: 0;
+	margin-bottom: 0}
+
+p	{line-height: 1.5}
+
+/* ヘッダー */
+header	{background-color: #ffffff;
+	border-bottom: solid 1px #aaaaaa;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 0 1px 7px #aaaaaa;
+	box-shadow: 0 1px 7px #aaaaaa;
+	padding: 5px}
+
+header h1	{font-family: 'Chango', cursive;
+	font-size: 24px;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto}
+
+header h1 img	{vertical-align: -10px;
+	margin-right: 5px}
+
+
+/* 記事 */
+article	{background-color: #ffffff;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 1px #aaaaaa;
+	padding: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 15px;
+	-webkit-box-shadow: 1px 1px 3px #aaaaaa;
+	box-shadow: 1px 1px 3px #aaaaaa;
+	border-radius: 20px;
+	overflow: hidden}
+
+/* フッター */
+footer	{width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	clear: both}
+
+/* 画像を中央に配置するレイアウト */
+figure.photo-center	{text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;}
+
+/* 画像を左に配置するレイアウト */
+figure.photo-left	{margin: 0;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	float: left}
+
+figure.photo-left img	{width: 550px}
+
+/* 画像を右に配置するレイアウト */
+figure.photo-right	{margin: 0;
+	margin-left: 20px;
+	float: right}
+
+figure.photo-right img	{width: 550px}
+
+/* 小見出し */
+h2	{clear: both;
+	border-bottom: solid 5px #c39f4a;
+	margin-top: 30px}
+
+/* リンク */
+a	{color: #b77d3c}
+
+a:hover	{color: #ff8800}
+
+
+/* 関連記事へのリンク */
+aside	{border: solid 2px #d6c588;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #edede3;
+	margin-top: 40px}
+
+aside h1	{font-family: 'Chango', cursive;
+	font-size: 18px;
+	color: #c39f4a;
+	border-bottom: dotted 1px #c39f4a}
+
+aside ul	{list-style-image: url(listmark.png)}
+
+aside a	{color: #000000;
+	text-decoration: none}
+

@@ -1,0 +1,111 @@
+@import url(http://fonts.googleapis.com/css?family=Chango);
+
+body {
+    font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', 'sans-serif';
+    background-color: #edede3;
+    background-image: url(../src/forest-thumb.jpg);
+    /* background-repeat: no-repeat; */
+    /* background-position: 200px 500px; */
+    margin: 0;
+}
+
+h1 {
+    font-size: 38px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    clear: both;
+    border-bottom: 5px solid #c39f4a;
+    margin-top: 30px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+/* Header */
+header {
+    background-color: #ffffffff;
+    border-bottom: solid 1px #aaaaaaaa;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0 1px 7px #aaaaaaaa;
+    padding: 5px;
+    border-bottom: 1px solid #aaaaaaaa;
+}
+
+header h1 {
+    font-family: 'Chango', cursive;
+    font-size: 24px;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h1 img {
+    vertical-align: -10px;
+    margin-right: 5px;
+}
+
+
+/* article */
+article {
+    background-color: #ffffffff;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px #aaaaaaaa;
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    padding: 30px;
+    -webkist-box-shadow: 1px 1px 3px #aaaaaaaa;
+    box-shadow: 1px 1px 3px #aaaaaaaa;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffffff;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+/* Image */
+/* Center */
+figure.photo-center {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* left */
+figure.photo-left {
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+    text-align: center;
+}
+
+figure.photo-left img {
+    width: 550px;
+}
+
+/* right */
+figure.photo-right {
+    margin: 0;
+    margin-left: 20px;
+    float: right;
+    text-align: center;
+}
+
+figure.photo-right img {
+    width: 550px;
+}

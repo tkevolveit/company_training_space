@@ -1,0 +1,198 @@
+@import url(http://fonts.googleapis.com/css?family=Chango);
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', 'sans-serif';
+    background-color: #edede3;
+    background-image: url(../src/forest-thumb.jpg);
+    /* background-repeat: no-repeat; */
+    /* background-position: 200px 500px; */
+    margin: 0;
+}
+
+h1 {
+    font-size: 38px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    clear: both;
+    border-bottom: 5px solid #c39f4a;
+    margin-top: 30px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: #b77d3c;
+}
+
+a:hover {
+    color: #ff8800;
+}
+
+a img {
+    border: none;
+}
+
+
+/* Header */
+header {
+    background-color: #ffffffff;
+    border-bottom: solid 1px #aaaaaaaa;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0 1px 7px #aaaaaaaa;
+    padding: 5px;
+    border-bottom: 1px solid #aaaaaaaa;
+}
+
+header h1 {
+    font-family: 'Chango', cursive;
+    font-size: 24px;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ff8800;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: #000000;
+}
+
+header h1 a:hover {
+    color: #000000;
+}
+
+header h1 img {
+    vertical-align: -10px;
+    margin-right: 5px;
+}
+
+/* Nav menu */
+nav ul {
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    font-size: 0; /* Why font size is 0? -> 半角スペースの文字サイズを0にしてる。リンクの間の余白を消してる */
+}
+
+nav li {
+    display: inline;
+    font-size: 12px;
+    border-right: 1px solid #aaaaaaaa;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+nav li:first-child {
+    border-left: 1px solid #aaaaaaaa;
+}
+
+nav {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    margin-top: -27px;
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* article */
+article {
+    background-color: #ffffffff;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px #aaaaaaaa;
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    padding: 30px;
+    -webkist-box-shadow: 1px 1px 3px #aaaaaaaa;
+    box-shadow: 1px 1px 3px #aaaaaaaa;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffffff;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+/* Image */
+/* Center */
+figure.photo-center {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* left */
+figure.photo-left {
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+    text-align: center;
+}
+
+figure.photo-left img {
+    width: 550px;
+}
+
+/* right */
+figure.photo-right {
+    margin: 0;
+    margin-left: 20px;
+    float: right;
+    text-align: center;
+}
+
+figure.photo-right img {
+    width: 550px;
+}
+
+/* Aside */
+aside {
+    border: 2px solid #d6c568;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #edede3;
+    margin-top: 40px;
+}
+
+aside h1 {
+    font-family: 'Chango', cursive;
+    font-size: 18px;
+    color: #ff8800;
+    border-bottom: 1px dotted #c39f4a;
+}
+
+aside ul {
+    list-style-image: url(../src/logo.png);
+}
+
+aside a {
+    color: #000000;
+    text-decoration: none;
+}
+

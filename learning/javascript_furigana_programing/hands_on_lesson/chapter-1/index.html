@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // b refers to a 
+        let a = { val: 10 };
+        let b = a;
+        a = { val: 100 };
+        console.log(b)
+
+        // Change reference value by updating value of variable
+        let c = { val: 10 };
+        let d = c;
+        c.val = 100;
+        console.log(d)
+    </script>
+</body>
+</html>

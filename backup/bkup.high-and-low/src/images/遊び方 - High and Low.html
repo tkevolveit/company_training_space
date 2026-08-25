@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://127.0.0.1:5500/high-and-low/src/pages/rule-page.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./遊び方 - High and Low_files/typography.css">
+    <link rel="stylesheet" href="./遊び方 - High and Low_files/utils.css">
+    <link rel="stylesheet" href="./遊び方 - High and Low_files/buttons.css">
+    <link rel="stylesheet" href="./遊び方 - High and Low_files/rule-page.css">
+    <link rel="stylesheet" href="./遊び方 - High and Low_files/style.css">
+    <title>遊び方 - High and Low</title>
+</head>
+<body cz-shortcut-listen="true">
+
+    <div class="page">
+        <div class="bg-image"></div>
+        
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="dotgothic16">遊び方</h1>
+        </header>
+    
+        <main id="rule-page" class="rule-page">
+            <section class="rule-section">
+                <!-- ゲームの遊び方 - Heading -->
+                <div class="text-wrapper">
+                    <h2 class="heading">ゲームの遊び方</h2>
+                    <p class="description">
+                        自分のカードが親カードよりHigh (大きい)かLow(小さい)か予想してね。Win (正解)または、Draw(引き分け)はステージクリア。次に進むことができるよ。一度使用したカードは除外されるから残りのカードを予測してハイスコアを狙ってね
+                    </p>
+                </div>
+    
+                <!-- Card Order Rule -->
+                <div class="card-order-rule">
+                    <!-- カードの順番 -->
+                    <div class="text-wrapper">
+                        <h2 class="heading">カードの順番</h2>
+                        <p class="description">
+                           『2』が一番弱くて、『A』が一番強いよ。
+                        </p>
+                    </div>
+    
+                    <div class="number-line-container">
+                        <div class="number-line-wrapper">
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                            <span>J</span>
+                            <span>Q</span>
+                            <span>K</span>
+                            <span>A</span>
+                        </div>
+    
+                        <div class="strength-line-container">
+                            <span>小</span>
+                            <div class="strength-line"></div>
+                            <span>大</span>
+                        </div>
+                    </div>
+                </div>
+   
+                <!-- Button -->
+                <div class="button-wrapper">
+                    <button class="btn btn--back">タイトルへ戻る</button>
+                </div>
+            </section>
+        </main>
+    </div>  
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

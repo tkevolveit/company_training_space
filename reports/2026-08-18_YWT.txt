@@ -1,0 +1,16 @@
+Y.Googleスライドのテーマの背景色を変えたかったが思った通りに出来なかった。
+
+W.メニューの「スライド＞テーマを編集」 からテーマの背景色が変更出来ることが分かった。
+
+T.テーマの色を変更し見やすいスライドにする。
+
+
+Todo
+See presentation
+Check script
+Check slides
+Practice Presentation
+  To know how many time do I need to do.
+
+Go to learn JavaScript
+

@@ -1,0 +1,26 @@
+.guide {
+    padding: 4rem 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-guide {
+    display: grid;
+    gap: 2rem;
+    margin-top: 1rem;
+
+    > * {
+        border: 2px solid white;
+    }
+
+    > .page-header {
+        background-color: #fff;
+    }
+}
+
+.button-guide {
+    margin-top: 1rem;
+}

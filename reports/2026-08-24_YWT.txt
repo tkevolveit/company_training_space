@@ -1,0 +1,24 @@
+
+Y.VSCodeでコードを分割ウィンドウで確認していて、コードの確認のしにくさを感じた。
+W.タブを切り離して別ウィンドウに出来ることが分かった
+T.VSCodeの機能を活用して効率をあげる
+
+
+
+---
+
+Todo
+- [ ]  list up
+- [ ] take screenshot before fixing the page and code
+- [ ] take screenshots after fixing it
+- [ ] Submit code
+
+
+
+Review Fix 1
+Start: 10:00
+Finish: 12:20
+
+Review Fix 2
+Start: 13:30
+Finish: 18:00

@@ -1,0 +1,143 @@
+Y.ハイアンドローの画面作成でブラウザー毎の検証までしていなかった。
+
+W.firefox, chrome, edgeの三つは最低限確認が必要との事を松尾さんに教えていただいた。
+
+T.画面検証を行う際はfirefox, chrome, edgeで確認する。
+
+
+
+---
+
+css nesting
+どういったことが、楽になったか。
+
+
+browser
+- chrome
+- firefox
+- edge
+
+逆引きでAI使う
+
+Compatibiltyを調べて発表する。
+
+
+
+
+感想
+見やすい資料でした。
+
+
+自分と同じ課題だけど人によって違うものが出来るということが
+面白いと感じた。
+背景画像とかルールの表示でこういう違うんだな思いました。
+
+
+質問
+ポップな背景を使っている。
+画像をどこでさがしたのか？
+
+
+感想
+altがあるといい
+naming convention
+
+理解不十分でも動くのを作る。
+
+
+
+根本的な対策が見えずらい
+
+作った物が動かないはよくある。
+不具合の報告
+原因の特定を考える
+再現性と解決案
+分割して統治
+
+
+改善点で
+事例を入れる
+
+
+やり方を社長に聞く
+進捗の話を聞く
+
+---
+
+Today`s Agenda
+
+柿栖さん
+Git 研修
+
+Launch
+Presentation
+役員会議
+
+7月と8月分はスプレッドシートに書いて生産
+
+スプレッドシートにハンコで帰ってくる必要はない
+メールだけで可能
+
+来月の記者日
+昇給の話ある、戻ってくると嬉しいとの事。
+
+tokoro 代表
+tokoro, shirasu, yamanaka, ishibashi
+watanabe
+
+
+
+
+14:00
+
+
+---
+
+感想
+発表ありがとうございます。
+
+mapper
+ 
+
+
+
+質問
+コードの書き方はどこで覚えたのか
+
+
+これから
+
+- comment
+- class design
+
+
+
+Data object
+Value object
+
+不変オブジェクト - const? final?
+
+Business logic
+- DAO - Repository
+- Clean architecture
+- Interface
+
+
+Framework
+- old 
+- 危機感を感じる
+- 色々な framework を知る
+
+
+JDBC -> MyBatis -> 
+Doma3
+Thymeleaf
+
+14:42
+
+---
+s
+Note
+
+lockfile
+ファイルの操作で同時に処理してしまわないようファイルをロックするために使用するものです。

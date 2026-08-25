@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/rule-page.css">
+    <title>遊び方 - High and Low</title>
+</head>
+<body class="bg-image">
+    <div class="page">
+        
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="dotgothic16">遊び方</h1>
+        </header>
+    
+        <main id="rule-page" class="rule-page">
+            <section class="rule-section">
+                <!-- ゲームの遊び方 - Heading -->
+                <div class="text-wrapper">
+                    <h2 class="heading">ゲームの遊び方</h2>
+                    <p class="description">
+                        自分のカードが親カードよりHigh (大きい)かLow(小さい)か予想してね。Win (正解)または、Draw(引き分け)はステージクリア。次に進むことができるよ。一度使用したカードは除外されるから残りのカードを予測してハイスコアを狙ってね
+                    </p>
+                </div>
+    
+                <!-- Card Order Rule -->
+                <div class="card-order-rule">
+                    <!-- カードの順番 -->
+                    <div class="text-wrapper">
+                        <h2 class="heading">カードの順番</h2>
+                        <p class="description">
+                           『2』が一番弱くて、『A』が一番強いよ。
+                        </p>
+                    </div>
+    
+                    <div class="number-line-container">
+                        <div class="number-line-wrapper">
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                            <span>J</span>
+                            <span>Q</span>
+                            <span>K</span>
+                            <span>A</span>
+                        </div>
+    
+                        <div class="strength-line-container">
+                            <span>小</span>
+                            <div class="strength-line"></div>
+                            <span>大</span>
+                        </div>
+                    </div>
+                </div>
+   
+                <!-- Button -->
+                <div class="button-wrapper">
+                    <button class="btn btn--back" onclick="location.href='../index.html'">タイトルへ戻る</button>
+                </div>
+            </section>
+        </main>
+    </div>  
+</body>
+</html>

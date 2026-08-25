@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+
+.press-start-2p {
+  font-family: "Press Start 2P", system-ui;
+  font-style: normal;
+}
+
+.dotgothic16 {
+  font-family: "DotGothic16", sans-serif;
+  font-style: normal;
+}
+

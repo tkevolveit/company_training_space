@@ -1,0 +1,65 @@
+.page--result {
+    background-color: rgb(27, 134, 54);
+    overflow: hidden;
+
+    @media  screen and (max-height: 720px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding-top: 30px;
+    }
+}
+
+.result-page {
+    position: relative;
+}
+
+.result-section {
+    background-color: rgba(41 181 94 / 70%);
+    backdrop-filter: blur(2px);
+    max-width: 650px;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 6px 8px rgba(17, 75, 40, 0.808);
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+    position: relative; /* .result-1を下に表示させるのに必要 */
+
+    @media  screen and (max-height: 860px) {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .button-wrapper {
+        margin: auto;
+        width: fit-content;
+    }
+}
+
+.result-1 {
+    position: absolute;
+    top: -51%;
+    left: -10%;
+    width: 721px;
+    opacity: 0.8;
+    z-index: 0;
+
+    @media  screen and (max-height: 860px) {
+        top: -65%;
+        left: -12%;
+    }
+}
+
+.result-2 {
+    position: absolute;
+    top: 90%;
+    left: 15%;
+
+    width: fit-content;
+    height: 150px;
+    z-index: 0;
+}
+

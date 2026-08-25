@@ -1,0 +1,283 @@
+/* STEP 7-6 */
+@import url(http://fonts.googleapis.com/css?family=Bowlby+One);
+
+article *	{background-color: inherit}
+article time	{display: inline-block}
+
+body	{font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+	background-color: #1e4100;
+	margin: 0}
+
+h1	{font-weight: normal;
+	font-size: 60px;
+	margin-top: 40px;
+	margin-bottom: 40px}
+
+p	{line-height: 1.5}
+
+
+/* ヘッダー */
+header	{background-color: #ffffff;
+	padding-top: 20px;
+	padding-bottom: 15px;
+	zoom: 1}
+
+header h1	{font-family: 'Bowlby One', cursive;
+	font-size: 38px;
+	line-height: 40px;
+	width: 640px;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto}
+
+header h1 a	{text-decoration: none;
+	display: block;
+	width: 200px}
+
+header h1 a:hover	{color: #000000}
+
+header h1 img	{display: none;}
+
+
+/* 記事 */
+article	{background-color: #daed2b;
+	overflow: hidden}
+
+article >  *	{width: 640px;
+	margin-left: auto;
+	margin-right: auto}
+
+
+
+/* フッター */
+footer	{background-color: #1e4100;
+	color: #ffffff;
+	padding-top: 30px;
+	padding-bottom: 30px}
+
+footer small	{display: block;
+	width: 640px;
+	margin-left: auto;
+	margin-right: auto}
+
+
+/* 画像 */
+figcaption	{text-align: center}
+
+/* リンク */
+a	{color: #000000}
+
+a:hover	{color: #ff8800}
+
+a img	{border: none}
+
+
+/* 関連記事へのリンク */
+aside	{width: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #b1c500;
+	margin-top: 40px}
+
+aside > *	{width: 640px;
+	margin-left: auto;
+	margin-right: auto}
+
+aside h1	{font-family: 'Bowlby One', cursive;
+	font-size: 16px;
+	color: #425831;
+	margin-top: 0;
+	margin-bottom: 0}
+
+aside ul	{list-style-type: none;
+	padding-left: 0;
+	margin-top: 5px;
+	margin-bottom: 0}
+
+aside li	{display: inline}
+
+aside a	{text-decoration: none;
+	font-size: 14px;
+	text-align: center;
+	padding: 10px;
+	border: solid 1px #ffffff;
+	display: inline-block}
+
+aside a:hover	{background-color: orange;
+	color: #000000}
+
+
+/* ナビゲーションメニュー */
+nav ul	{list-style-type: none;
+	margin-top: 0px;
+	margin-bottom: 0;
+	padding-left: 0;
+	font-size: 0}
+
+nav li	{display: inline;
+	font-size: 12px;
+	padding-left: 6px}
+
+nav	{width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+	margin-top: -85px}
+
+nav a	{color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	display: inline-block;
+	width: 90px;
+	padding-top: 32px;
+	padding-bottom: 32px;
+	text-align: center;
+	background-color: #ff7f50}
+
+nav a:hover	{color: #ffffff;
+	background-color: #ffaa00}
+
+
+
+/* 記事の一覧ページ */
+#posts section	{background-color: #daed2b;
+	overflow: hidden}
+
+#posts section > *	{width: 640px;
+	margin-left: auto;
+	margin-right: auto}
+
+#posts article	{background-color: #b1c500;
+	margin-bottom: 20px;
+	-webkit-text-size-adjust: 100%}
+
+#posts article img	{float: left;
+	margin-right: 20px;}
+
+#posts article h1	{font-size: 24px;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 0}
+
+#posts article p	{font-size: 12px;
+	margin-right: 20px;}
+
+#posts time	{font-size: 12px;
+	color: #ffffff;
+	background-color: #1e4100;
+	padding: 2px 20px 2px 20px}
+
+#posts article a	{text-decoration: none;
+	display: block;
+	overflow: hidden}
+
+#posts article a:hover	{color: #000000;
+	background-color: #00b9c5}
+
+
+/* トップページ */
+#top header	{margin-bottom: 0}
+
+#top section	{background-color: #daed2b;
+	padding-top: 60px;
+	padding-bottom: 40px}
+
+#top section > *	{width: 640px;
+	margin-left: auto;
+	margin-right: auto}
+
+#photo h1	{color: #ffffff;
+	font-size: 150px;
+	font-family: 'Bowlby One', cursive;
+	line-height: 1;
+	margin-top: 0;
+	margin-bottom: 20px;
+	text-shadow: 0px 0px 5px #000000;}
+
+#photo p	{color: #ffffff;
+	font-size: 20px;
+	font-weight: bold;
+	float: right;
+	margin: 0;
+	text-shadow: 0px 0px 5px #000000}
+
+#photo a	{text-align: center;
+	background-color: #72f7ff;
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImcyMjgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiM3MkY3RkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiMwMEI5QzUiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2cyMjgpIiAvPgo8L3N2Zz4=);
+	background-image: -webkit-gradient(
+		linear, 
+		left top, left bottom, 
+		from(#72f7ff), 
+		to(#00b9c5));
+	background-image: -webkit-linear-gradient(
+		top, 
+		#72f7ff 0%, 
+		#00b9c5 100%);
+	background-image: linear-gradient(
+		to bottom, 
+		#72f7ff 0%, 
+		#00b9c5 100%);
+	padding: 10px 40px 10px 40px;
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none}
+
+#message	{margin-top: 40px}
+
+
+
+/* アバウトページ */
+table, th, td	{border: solid 1px #333333}
+
+table	{border-collapse: collapse;
+	margin-top: 30px;
+	margin-bottom: 30px;}
+
+th, td	{padding: 10px 20px 10px 20px}
+
+th	{width: 150px;
+	background-color: #9cd31a;
+	text-align: left}
+
+td	{width: 450px;
+	background-color: #fdffc9}
+
+caption	{font-weight: bold;
+	background-color: #b1c500;
+	padding: 5px;
+	margin-bottom: 10px}
+
+
+/* お問い合わせページ */
+input, textarea	{display: block;
+	background-color: #ffffff}
+
+input	{width: 400px}
+
+input[type="submit"]	{width: 200px;
+	background-color: #137f86;
+	background-image: -webkit-gradient(
+		linear, 
+		left top, left bottom, 
+		from(#72f7ff), 
+		to(#137f86));
+	background-image: -webkit-linear-gradient(
+		top, 
+		#72f7ff 0%, 
+		#137f86 100%);
+	background-image: linear-gradient(
+		to bottom, 
+		#72f7ff 0%, 
+		#137f86 100%);
+	color: white;
+	border: solid 1px #aaaaaa;
+	padding-top: 10px;
+	padding-bottom: 10px}
+
+textarea	{width: 600px;
+	height: 120px}
+
+form	{margin-bottom: 30px}
+
+

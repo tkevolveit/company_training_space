@@ -1,0 +1,7 @@
+.title-page {
+    padding: 6rem 0;
+    
+    @media  screen and (max-height: 860px) {
+        padding: 0;
+    }
+}

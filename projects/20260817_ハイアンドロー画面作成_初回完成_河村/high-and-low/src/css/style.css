@@ -1,0 +1,537 @@
+/*
+CSS ガイド
+命名規則は基本BEMで設計、util等も活用
+参照：https://qiita.com/Takazudo/items/78ee15564bfefdea844c
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+
+/* variables */
+:root {
+    --primary-color: rgba(250, 250, 250, 1);
+    --secondary-color: rgba(9, 58, 28, 1);
+    --accent: orange;
+}
+
+/* Typography */
+.font-system {
+  font-family: "Press Start 2P", system-ui;
+  font-style: normal;
+}
+
+.font-sans {
+  font-family: "DotGothic16", sans-serif;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  /* デザインしやすくborderをbox内に含める */
+}
+
+body {
+    font-family: "DotGothic16", sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 5rem;
+    color: var(--accent);
+
+    @media  screen and (max-height: 860px) {
+        font-size: 4rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+.page {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.page-header {
+    padding: 1rem;
+
+    h1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        line-height: 1.2;
+        letter-spacing: 10%;
+        text-transform: uppercase;
+    }
+}
+
+/* Has background */
+.text-container {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    @media  screen and (max-height: 860px) {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+}
+
+/* NO background */
+.text-wrapper {
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    @media  screen and (max-height: 860px) {
+        gap: 0.5rem;
+    }
+}
+
+.bg-image {
+    background-image: 
+    linear-gradient(
+        rgba(12, 18, 24, 0.5), 
+        rgba(194, 150, 111, 0.5)),
+    url(../images/bg-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* utils */
+.text-red {
+    color: rgb(227, 66, 52);
+}
+
+.text-pale {
+    color: rgb(180, 191, 211);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-shadow {
+    text-shadow: 8px 8px var(--secondary-color);
+}
+
+.z-0 {
+    z-index: 0;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+/* Button */
+.button-container {
+    padding: 0.5rem;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+.btn  {
+    font-family: "DotGothic16", sans-serif;
+    padding: 1rem 2rem;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: hsl(55, 73%, 97%);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(0.99);
+        opacity: 0.9;
+    }
+}
+
+.btn--play {
+    background-color: rgb(0, 166, 244);
+}
+
+.btn--rule,
+.btn--retry {
+    background-color: rgb(252, 195, 0);
+}
+
+.btn--high {
+    background-color: rgb(252, 75, 72);
+}
+
+.btn--low {
+    background-color: rgb(61, 185, 242);
+}
+
+.btn--result,
+.btn--back  {
+    background-color: rgb(133, 86, 62);
+}
+
+.btn--continue {
+    background-color: rgb(74, 228, 72);
+}
+
+/* Card Spot */
+.card-spot-container {
+    padding: 1rem;
+}
+
+.card-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+
+.card {
+    width: 150px;
+
+    @media  screen and (max-height: 860px) {
+        width: 120px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    figcaption {
+        text-align: center;
+        font-size: 0.8rem;
+        word-spacing: 10%;
+        letter-spacing: 1.5;
+    }
+}
+
+/* Title page */
+.title-page {
+    padding: 6rem 0;
+    
+    @media  screen and (max-height: 860px) {
+        padding: 0;
+    }
+
+    .btn {
+        min-width: 160px;
+    }
+}
+
+/* Rule page */
+.rule-page {
+    padding: 6rem 0;
+
+    @media  screen and (max-height: 860px) {
+        padding: 0;
+    }
+}
+
+.rule-section {
+    background-color: rgba(41 181 94 / 70%);
+    backdrop-filter: blur(2px);
+    max-width: 650px;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 6px 8px rgba(17, 75, 40, 0.808);
+    display: grid;
+    gap: 2rem;
+
+    @media  screen and (max-height: 860px) {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .text-wrapper {
+        @media  screen and (max-height: 860px) {
+            margin-top: -20px;
+        }
+    }
+
+    .button-wrapper {
+        margin: auto;
+        width: fit-content;
+    }
+}
+
+.card-order-rule {
+    @media  screen and (max-height: 860px) {
+        margin-top: -20px;
+        padding: 1rem;
+    }
+}
+
+/* number line */
+.number-line-container {
+    background-color: var(--secondary-color);
+    width: 80%;
+    margin: auto;
+    padding: 0.5rem 2rem;
+    border-radius: 8px;
+}
+
+.number-line-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+}
+
+.strength-line-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  
+    :first-child {
+        font-size: 1rem;
+        padding-bottom: 5px;
+        z-index: 1;
+    }
+
+    :last-child {
+        font-size: 1.5rem;
+        padding-bottom: 8px;
+        z-index: 1;
+    }
+}
+
+.strength-line {
+    width: 100%;
+    height: 8px;
+    background: #833AB4;
+    background: linear-gradient(
+        90deg, 
+        rgba(131, 58, 180, 1) 0%, 
+        rgba(253, 29, 29, 1) 78%, 
+        rgba(252, 176, 69, 1) 100%);
+    border-radius: 25px;
+    z-index: 0;
+}
+
+/* Round page */
+.round-section {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 550px;
+
+    @media  screen and (max-height: 860px) {
+        gap: 0.5rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+}
+
+/* Result page */
+.page--result {
+    background-color: rgb(27, 134, 54);
+    overflow: hidden;
+
+    @media  screen and (max-height: 720px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding-top: 30px;
+    }
+
+    .page-header {
+        margin-left: 12px;
+    }
+}
+
+.result-page {
+    position: relative;
+}
+
+.result-section {
+    background-color: rgba(41 181 94 / 70%);
+    backdrop-filter: blur(2px);
+    max-width: 650px;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 6px 8px rgba(17, 75, 40, 0.808);
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+    position: relative; /* .trophyを下に表示させるのに必要 */
+
+    @media  screen and (max-height: 860px) {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .button-wrapper {
+        margin: auto;
+        width: fit-content;
+        gap: 1rem;
+    }
+
+    .btn {
+        min-width: 235px;
+    }
+}
+
+.trophy {
+    position: absolute;
+    top: -51%;
+    left: 3%;
+    width: 721px;
+    opacity: 0.8;
+    z-index: 0;
+
+    @media  screen and (max-height: 860px) {
+        top: -65%;
+    }
+}
+
+.coins {
+    position: absolute;
+    top: 90%;
+    left: 21%;
+
+    width: fit-content;
+    height: 150px;
+    z-index: 0;
+}
+
+/* Game page */
+.page-header--game {
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: rgba(41, 181, 95, 0.95);
+    overflow: hidden;
+
+    h1 {
+        font-size: 1rem;
+        flex-direction: row;
+    }
+
+    /* RIGHT SIDE STYLE */
+    :last-child {
+        display: flex;
+    }
+
+    .btn {
+        padding: 0.7rem 1.25rem;
+    }
+}
+
+.game-page {
+    
+    @media  screen and (max-height: 860px) {
+        display: flex;
+        align-items: flex-start;
+    }
+}
+
+/* Card Deck */
+.card-deck-section {
+    padding: 1rem 0.25rem;
+}
+
+.card-deck-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.card-wrapper {
+    position: relative;
+
+    img {
+        display: block;
+        position: relative;
+        width: 50px;
+        z-index: -1;
+        background-color: gray;
+        
+        @media  screen and (max-height: 860px) {
+            width: 40px;
+        }
+    }
+}
+
+.card-wrapper.dealer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    opacity: 0.6;
+}
+
+.card-wrapper.finished::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    opacity: 0.6;
+}
+
+/* Card Field */
+.card-field-section {
+    max-width: 720px;
+    margin: auto;
+
+    .button-wrapper {
+        @media  screen and (max-height: 860px) {
+            gap: 0.5rem;
+            width: 245px;
+            margin: auto;
+        }
+    }
+}

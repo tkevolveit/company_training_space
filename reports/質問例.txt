@@ -1,0 +1,17 @@
+実現したいこと（Goal）
+最終的にどのような挙動にしたいのか。
+
+起きている問題・エラー（Current Status）
+エラーメッセージ（全文）や、期待と違う具体的な挙動。
+
+該当のコード・環境（Code & Env）
+関係する部分のソースコード、OS、言語のバージョン。
+
+試したこと・調べたこと（Tried）
+「ここまでは動いた」「この記事を参考にこれを試したがダメだった」という情報。
+
+【例】
+実現したいこと： PythonのSeleniumでボタンをクリックしたい。
+問題： ElementClickInterceptedException というエラーが出る。
+コード： driver.find_element(By.ID, "submit").click()
+試したこと： time.sleep(3)を入れてみたが変わらなかった。

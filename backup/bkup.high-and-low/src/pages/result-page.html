@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/components/card.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/result-page.css">
+    <title>結果 - High and Low</title>
+</head>
+<body>
+    <div class="page page--result">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="press-start-2p">
+                <span class="text-shadow">Game</span>
+                <span class="text-shadow">over</span>
+            </h1>
+        </header>
+    
+        <main id="result-page" class="result-page">
+            <section class="result-section z-1">
+
+                <div class="text-container">
+                    <h2 class="heading">今回の記録</h2>
+                    <p class="description">
+                        記録： XX連勝!
+                    </p>
+                </div>
+
+                <!-- Button -->
+                <div class="button-wrapper">
+                    <button class="btn btn--back" onclick="location.href='../index.html'">タイトルへ戻る</button>
+                    <button class="btn btn--retry" onclick="location.href='./game-page.html'">リトライ</button>
+                </div>
+
+            </section>
+            <img 
+                class="result-1"
+                src="../images/result1.png" alt=""
+            >
+            <img 
+                class="result-2"
+                src="../images/result2.png" alt=""
+            >
+        </main>
+    </div>  
+</body>
+</html>

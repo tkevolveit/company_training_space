@@ -1,0 +1,23 @@
+.float .right {
+    float: right;
+    background-color: yellow;
+}
+.float .left {
+    float: left;
+    background-color: green;
+    clear: both;
+}
+.float .center {
+    float: center;
+    background-color: blue;
+    /* clear: both; */
+}
+
+.inline-box {
+    background-color: orange;
+    display: inline;
+}
+.block-box {
+    background-color: orange;
+    display: list-item;
+}

@@ -1,0 +1,13 @@
+.round-section {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 550px;
+
+    @media  screen and (max-height: 860px) {
+        gap: 0.5rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+    }
+}
