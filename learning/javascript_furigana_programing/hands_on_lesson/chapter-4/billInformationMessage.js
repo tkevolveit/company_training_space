@@ -1,6 +1,5 @@
-
 // Announce invoice email message
-let createMail = (client, bill, sender ) => {
+let createMail = (client, bill, sender, company ) => {
 
     let msg = `
         Dear, ${client}
@@ -12,8 +11,10 @@ let createMail = (client, bill, sender ) => {
         Please let us know if you have any questions.Best regards,
 
         Best regards,
-        ${sender}
-    `
+        ${sender}/${company}
+    `;
+
+    console.log(msg);
 }
 
 // Calc tax
@@ -26,9 +27,8 @@ let clients = [
     { name: "Marry", bill: 4000, isCharge: false },
 ]
 
-let sender = [
-    { name: "Smith", companyName: "abcstreet.co.ltd" },
-]
+let senders = { name: "Smith", companyName: "abcstreet.co.ltd" }
+
 
 // Loop mail list
 for (let client of clients) {
@@ -38,5 +38,5 @@ for (let client of clients) {
         bill = addCharge(bill);
     }
 
-    createMail(client['name'], bill);
+    createMail(client['name'], bill, senders['name'], senders['companyName'])
 }

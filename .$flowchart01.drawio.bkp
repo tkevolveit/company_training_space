@@ -11,7 +11,7 @@
           <mxGeometry height="60" width="120" x="160" y="240" as="geometry" />
         </mxCell>
         <mxCell id="Jc-TSw0ZMTe5QSplHyHt-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;shadow=1;" value="Conditional" vertex="1">
-          <mxGeometry height="30" width="60" x="190" y="125" as="geometry" />
+          <mxGeometry height="30" width="60" x="260" y="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
