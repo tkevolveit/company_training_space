@@ -1,0 +1,204 @@
+<mxfile host="Electron" pages="2">
+  <diagram name="MPA" id="xfbBhLvWRLbMstbgs64p">
+    <mxGraphModel dx="776" dy="2013" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" value="HTTP Header" vertex="1">
+          <mxGeometry height="100" width="130" x="95" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="4C3RYqWGCGk98AXXMJPK-1" parent="fZa1jc26OW3zRVHNWi2t-1" style="whiteSpace=wrap;html=1;" value="content" vertex="1">
+          <mxGeometry height="60" width="90" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cleint" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-3" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Web Server" vertex="1">
+          <mxGeometry height="80" width="60" x="590" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-4" edge="1" parent="1" source="fZa1jc26OW3zRVHNWi2t-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="fZa1jc26OW3zRVHNWi2t-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-5" connectable="0" parent="fZa1jc26OW3zRVHNWi2t-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Request" vertex="1">
+          <mxGeometry relative="1" x="0.1366" y="-2" as="geometry">
+            <mxPoint x="-35" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-8" edge="1" parent="1" source="fZa1jc26OW3zRVHNWi2t-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="fZa1jc26OW3zRVHNWi2t-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Generate HTML&lt;div&gt;(生成)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-9" edge="1" parent="1" source="fZa1jc26OW3zRVHNWi2t-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="fZa1jc26OW3zRVHNWi2t-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-7" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" value="HTTP Header" vertex="1">
+          <mxGeometry height="110" width="140" x="330" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-10" parent="fZa1jc26OW3zRVHNWi2t-7" style="whiteSpace=wrap;html=1;" value="Response" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-13" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" value="HTTP Header" vertex="1">
+          <mxGeometry height="100" width="130" x="95" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="4C3RYqWGCGk98AXXMJPK-2" parent="fZa1jc26OW3zRVHNWi2t-13" style="whiteSpace=wrap;html=1;" value="content" vertex="1">
+          <mxGeometry height="60" width="90" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-14" edge="1" parent="1" source="fZa1jc26OW3zRVHNWi2t-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="fZa1jc26OW3zRVHNWi2t-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Generate HTML&lt;div&gt;(生成)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-16" edge="1" parent="1" source="fZa1jc26OW3zRVHNWi2t-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="fZa1jc26OW3zRVHNWi2t-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-17" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" value="HTTP Header" vertex="1">
+          <mxGeometry height="110" width="140" x="330" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-18" parent="fZa1jc26OW3zRVHNWi2t-17" style="whiteSpace=wrap;html=1;" value="Response" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-22" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="150" />
+            </Array>
+            <mxPoint x="620" y="180" as="sourcePoint" />
+            <mxPoint x="620" y="124.28932188134524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cleint" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-24" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Web Server" vertex="1">
+          <mxGeometry height="80" width="60" x="590" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-25" edge="1" parent="1" source="fZa1jc26OW3zRVHNWi2t-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="fZa1jc26OW3zRVHNWi2t-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-26" connectable="0" parent="fZa1jc26OW3zRVHNWi2t-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Request" vertex="1">
+          <mxGeometry relative="1" x="0.1366" y="-2" as="geometry">
+            <mxPoint x="-35" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-27" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="619.41" y="445.71067811865476" />
+            </Array>
+            <mxPoint x="619.41" y="475.71067811865476" as="sourcePoint" />
+            <mxPoint x="619.41" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-28" parent="1" style="whiteSpace=wrap;html=1;" value="&lt;h1&gt;MPA&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="70" width="140" x="330" y="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZa1jc26OW3zRVHNWi2t-29" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;strong style=&quot;padding: 0px; margin: 0px; box-sizing: inherit; font-weight: bold; color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;MPA&lt;/strong&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;（&lt;/span&gt;&lt;strong style=&quot;padding: 0px; margin: 0px; box-sizing: inherit; font-weight: bold; color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;マルチページアプリケーション&lt;/strong&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;）は、リンクやボタンをクリックするごとに新しいページがサーバーから取得される仕組みです。&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; box-sizing: inherit; color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;ユーザーがページ間を遷移するたびに、サーバー側で生成された新しいHTMLがダウンロードされ、画面全体がリフレッシュされます。&lt;/span&gt;" vertex="1">
+          <mxGeometry height="130" width="560" x="110" y="650" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="SPA" id="lNMTSpSavg5PpYabNciQ">
+    <mxGraphModel dx="776" dy="2013" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-0" />
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-1" parent="lyQI0UTTAq6guOOX_NU3-0" />
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-2" parent="lyQI0UTTAq6guOOX_NU3-1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" value="HTTP Header" vertex="1">
+          <mxGeometry height="100" width="130" x="95" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-3" parent="lyQI0UTTAq6guOOX_NU3-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cleint" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-4" parent="lyQI0UTTAq6guOOX_NU3-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Web Server" vertex="1">
+          <mxGeometry height="80" width="60" x="590" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-5" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" source="lyQI0UTTAq6guOOX_NU3-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="lyQI0UTTAq6guOOX_NU3-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-6" connectable="0" parent="lyQI0UTTAq6guOOX_NU3-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Request" vertex="1">
+          <mxGeometry relative="1" x="0.1366" y="-2" as="geometry">
+            <mxPoint x="-35" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-7" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" source="lyQI0UTTAq6guOOX_NU3-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="lyQI0UTTAq6guOOX_NU3-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-8" parent="lyQI0UTTAq6guOOX_NU3-1" style="rounded=1;whiteSpace=wrap;html=1;" value="Generate HTML&lt;div&gt;(生成)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-9" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" source="lyQI0UTTAq6guOOX_NU3-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="lyQI0UTTAq6guOOX_NU3-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-10" parent="lyQI0UTTAq6guOOX_NU3-1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" value="HTTP Header" vertex="1">
+          <mxGeometry height="110" width="140" x="330" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-11" parent="lyQI0UTTAq6guOOX_NU3-10" style="whiteSpace=wrap;html=1;" value="Response" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-12" parent="lyQI0UTTAq6guOOX_NU3-1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" value="HTTP Header" vertex="1">
+          <mxGeometry height="100" width="130" x="95" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="qssh5jwQ45GAcyTtx69n-1" parent="lyQI0UTTAq6guOOX_NU3-12" style="whiteSpace=wrap;html=1;" value="content" vertex="1">
+          <mxGeometry height="60" width="90" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-13" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" source="lyQI0UTTAq6guOOX_NU3-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="534.9999999999995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-14" parent="lyQI0UTTAq6guOOX_NU3-1" style="rounded=1;whiteSpace=wrap;html=1;" value="Generate Content&lt;div&gt;(コンテンツ情報の生成)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-15" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="lyQI0UTTAq6guOOX_NU3-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="534.9999999999995" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-18" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="150" />
+            </Array>
+            <mxPoint x="620" y="180" as="sourcePoint" />
+            <mxPoint x="620" y="124.28932188134524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-19" parent="lyQI0UTTAq6guOOX_NU3-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cleint" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-20" parent="lyQI0UTTAq6guOOX_NU3-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Web Server" vertex="1">
+          <mxGeometry height="80" width="60" x="590" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-21" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" source="lyQI0UTTAq6guOOX_NU3-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="lyQI0UTTAq6guOOX_NU3-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-22" connectable="0" parent="lyQI0UTTAq6guOOX_NU3-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Request&lt;div&gt;Async process&lt;/div&gt;&lt;div&gt;(非同期処理)&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.1366" y="-2" as="geometry">
+            <mxPoint x="-35" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-23" edge="1" parent="lyQI0UTTAq6guOOX_NU3-1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="619.41" y="445.71067811865476" />
+            </Array>
+            <mxPoint x="619.41" y="475.71067811865476" as="sourcePoint" />
+            <mxPoint x="619.41" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-24" parent="lyQI0UTTAq6guOOX_NU3-1" style="whiteSpace=wrap;html=1;" value="&lt;h1&gt;SPA&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="70" width="140" x="330" y="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-25" parent="lyQI0UTTAq6guOOX_NU3-1" style="text;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;SPAはページの読み込み時に必要なデータやリソースを一度に取得し、その後はサーバーとのやり取りを最小限に抑えて動的なコンテンツの表示や操作を行います。&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; box-sizing: inherit; color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;ページ内で変化させる必要のない部分はそのまま、変化させたい部分だけを更新（クライアント側でのHTML生成）することで、表示の速度や全体のパフォーマンスを向上させることができます。&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; box-sizing: inherit; color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.87); font-family: YakuHanJPs, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Noto Sans JP&amp;quot;, &amp;quot;BIZ UDPGothic&amp;quot;, Meiryo, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;ユーザーが認識する変化はページの一部であり、ページ遷移（ページ全体が白くなる）を意識することがなくなります。&lt;/span&gt;&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="560" x="110" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="lyQI0UTTAq6guOOX_NU3-17" parent="lyQI0UTTAq6guOOX_NU3-1" style="whiteSpace=wrap;html=1;" value="Response&lt;div&gt;{JSON Object}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="340" y="505" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

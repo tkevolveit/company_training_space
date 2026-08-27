@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <title>High and Low</title>
+</head>
+<body>
+    <div class="app">
+
+        <div class="bg-image">
+
+            <!--  page--result for result page -->
+            <div class="page">
+                <main>
+                    <!-- Title  -->
+                    <div class="title-page">
+                        <!-- Header -->
+                        <header class="page-header">
+                            <h1 class="font-system">
+                                <span>High</span>
+                                <span>&amp;</span>
+                                <span>Low</span>
+                            </h1>
+                        </header>
+    
+                        <!-- Button -->
+                        <div class="button-container">
+                            <div class="button-wrapper">
+                                <button id="btn-play" class="btn btn--play">スタート</button>
+                                <button id="btn-rule" class="btn btn--rule">遊び方</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Rules -->
+                    <div class="rule-page">
+                        <!-- Header -->
+                        <header class="page-header">
+                            <h1 class="font-sans">遊び方</h1>
+                        </header>
+
+                        <section class="rule-section">
+                            <!-- ゲームの遊び方 - Heading -->
+                            <div class="text-wrapper">
+                                <h2 class="text-center">ゲームの遊び方</h2>
+                                <p class="text-center">
+                                    自分のカードが親カードよりHigh (大きい)かLow(小さい)か予想してね。Win (正解)または、Draw(引き分け)はステージクリア。次に進むことができるよ。一度使用したカードは除外されるから残りのカードを予測してハイスコアを狙ってね
+                                </p>
+                            </div>
+                
+                            <!-- Card Order Rule -->
+                            <div class="card-order-rule">
+                                <!-- カードの順番 -->
+                                <div class="text-wrapper">
+                                    <h2 class="text-center">カードの順番</h2>
+                                    <p class="text-center">
+                                    『2』が一番弱くて、『A』が一番強いよ。
+                                    </p>
+                                </div>
+                
+                                <div class="number-line-container">
+                                    <div class="number-line-wrapper">
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                        <span>6</span>
+                                        <span>7</span>
+                                        <span>8</span>
+                                        <span>9</span>
+                                        <span>10</span>
+                                        <span>J</span>
+                                        <span>Q</span>
+                                        <span>K</span>
+                                        <span>A</span>
+                                    </div>
+                
+                                    <div class="strength-line-container">
+                                        <span>小</span>
+                                        <div class="strength-line"></div>
+                                        <span>大</span>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <!-- Button -->
+                            <div class="button-wrapper">
+                                <button id="btn-back" class="btn btn--back">タイトルへ戻る</button>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <!-- Game Page -->                    
+                    <div class="game-page">
+                        <!-- Header -->
+                        <header class="page-header page-header--game">
+                            <!-- Game Title -->
+                            <div>
+                                <h1 class="font-system">
+                                    <span>High</span>
+                                    <span>&amp;</span>
+                                    <span>Low</span>
+                                </h1>
+                            </div>
+    
+                            <!-- Streak Count, Home button -->
+                            <div>
+                                <!-- Streak Count -->
+                                <div class="text-container">
+                                    <p class="text-center">
+                                    記録： XX連勝!
+                                    </p>
+                                </div>
+                    
+                                <div class="button-wrapper">
+                                    <button id="btn-home" class="btn btn--back">
+                                        <!-- &#127968; => 🏠 -->
+                                        &#127968;
+                                    </button>
+                                </div>
+                            </div>
+                        </header>
+
+                        <!-- Game content -->
+                        <div class="game-content">
+                            <!-- Card Deck -->
+                            <section class="card-deck-section">
+                                <div class="card-deck-grid">
+                                    <!-- Heart -->
+                                    <div class="card-container">
+                                        <div class="card-wrapper dealer">
+                                            <img src="./images/heart/heart2.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper finished">
+                                            <img src="./images/heart/heart3.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart4.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart5.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart6.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart7.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart8.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart9.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart10.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart11.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart12.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart13.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/heart/heart1.png" alt="">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Club -->
+                                    <div class="card-container">
+                                        <div class="card-wrapper finished">
+                                            <img src="./images/club/club2.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club3.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club4.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club5.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club6.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club7.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club8.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club9.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club10.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club11.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club12.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club13.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/club/club1.png" alt="">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Diamond -->
+                                    <div class="card-container">
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond2.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond3.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond4.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond5.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond6.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond7.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond8.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond9.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond10.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond11.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond12.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond13.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/diamond/diamond1.png" alt="">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Spade -->
+                                    <div class="card-container">
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade2.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade3.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade4.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade5.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade6.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade7.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade8.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade9.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade10.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade11.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade12.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade13.png" alt="">
+                                        </div>
+                                        <div class="card-wrapper">
+                                            <img src="./images/spade/spade1.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+    
+                            <!-- Card Field -->
+                            <section class="card-field-section">
+    
+                                <!-- Card Spot -->
+                                <div class="card-spot-container">
+                                    <div class="card-grid">
+                                        <figure class="card">
+                                            <img src="./images/club/club1.png" alt="">
+                                            <figcaption>親カード</figcaption>
+                                        </figure>
+                                        <figure class="card">
+                                            <img src="./images/backSide.png" alt="">
+                                            <figcaption>あなたのカード</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+    
+                                <!-- Button -->
+                                <div class="button-wrapper">
+                                    <button id="btn-high" class="btn btn--high" value="high">High</button>
+                                    <button id="btn-low" class="btn btn--low" value="low">Low</button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- Round Page -->
+                    <div class="round-page">
+                        <!-- Header -->
+                        <header class="page-header">
+                            <h1 class="font-system">Win</h1>
+                        </header>
+    
+                        <!-- <header class="page-header">
+                            <h1 class="font-system text-red">Lose</h1>
+                        </header> -->
+    
+                        <!-- <header class="page-header">
+                            <h1 class="font-system text-pale">Draw</h1>
+                        </header> -->
+                        
+                        <section class="round-section">
+
+                            <!-- Round Card -->
+                            <div class="round-card-container">
+                                <div class="card-grid">
+                                    <figure class="card">
+                                        <img src="./images/club/club1.png" alt="">
+                                        <figcaption>親カード</figcaption>
+                                    </figure>
+                                    <figure class="card">
+                                        <img src="./images/club/club2.png" alt="">
+                                        <figcaption>あなたのカード</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="text-wrapper">
+                                <p class="text-center">
+                                    あなたが選択したのは <span id="high-or-low">[XXXX]</span> でした
+                                </p>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="button-wrapper">
+                                <button id="btn-result" class="btn btn--result">結果画面へ</button>
+                                <button id="btn-continue" class="btn btn--continue">続ける</button>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Result Page -->
+                    <div class="result-page">
+                        <!-- Header -->
+                        <header class="page-header">
+                            <h1 class="font-system">
+                                <span class="text-shadow">Game</span>
+                                <span class="text-shadow">over</span>
+                            </h1>
+                        </header>
+
+                        <section class="result-section z-1">
+
+                            <div class="text-container">
+                                <h2 class="text-center">今回の記録</h2>
+                                <p class="text-center">
+                                    記録： XX連勝!
+                                </p>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="button-wrapper">
+                                <button id="btn-title" class="btn btn--back">タイトルへ戻る</butt>
+                                <button id="btn-retry" class="btn btn--retry">リトライ</button>
+                            </div>
+
+                        </section>
+                        <img 
+                            class="trophy"
+                            src="./images/trophy.png" alt=""
+                        >
+                        <img 
+                            class="coins"
+                            src="./images/coins.png" alt=""
+                        >
+                    </div>
+                </main>
+            </div>  
+
+        </div>
+
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>

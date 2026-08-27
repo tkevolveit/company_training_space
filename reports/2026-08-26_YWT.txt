@@ -1,15 +1,15 @@
-Y. isNaN()で論理値がfalseで帰ってくるのが何故なのか良く分からなかった。(isNaN()で何故か論理値がfalseで帰ってくる)
-W. isNaN()に論理値(trueかflase)を入れると値が0 または 1 に強制変換されることが分かった。
-またisNaN()では変換の結果がNaNになれば、その引数が元々NaNでなくてもtrueを返すということが分かった。
-T. isNaN()は数値型ではないデータに対してもtrueを返してしまうので、入力値の型が保証されていない場合や、
-厳密な数値計算の結果を検証したい場合にはNumber.isNaNを使用し本当にNaNであるときのみtrueを返すようにする。
+Y. innerHTMLのかわりにinsertAdjacentHTMLを使用したいが仕様がいまいち理解できていないので使えなかった
+W. insertAdjacentHTML(position, input) 
+positionに"beforebegin"とかのposition名を指定し、
+inputに新しいHTML文字列を指定することで要素の挿入が出来ることが分かった。
+また、innerHTMLで要素を追加する場合は最初からすべて解析し直し、完全に新しいDOM（要素）として再構築して配置するということで、
+それまでにJavaScriptで設定していた 古い要素に紐づいていたaddEventListenerはすべて消滅するということが分かった。
+T.要素の追加ではinnerHTMLよりも既存のイベントリスナーを壊さず、高速なinsertAdjacentHTMLを使うようにする。
 
-Number.isNaNは「本当にNaNであるとき」のみtrueを返す。
-
-数値型ではないデータに対してもtrueを返してしまう性質は、厳密なデータチェックを行いたい場合にバグの温床となります。
-
-
-
+TrustedHTML
+DOM XSSを大幅に軽減するAPIで、sinkオブジェクトです。
+安全にHTMLとして挿入できると認められた文字列を表すオブジェクトとして
+DOM XSS（クロスサイトスクリプティング）攻撃を防ぐための「Trusted Types API」で使われるということが分かった。
 
 
 ---

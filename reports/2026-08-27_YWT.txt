@@ -1,0 +1,18 @@
+Y.取得した要素の内容をconsole.log()で確認しようとしたときに、[object HTMLDivElement]と帰ってきて
+中身の確認が見えなかった。
+W.文字列と変数を+演算子で出力するとJavaScriptでDOM要素を文字列として表示しようとしデフォルトの文字列表現で[object HTMLElement]が
+出力されるということが分かった。
+×：console.log(” this is hoge : “ + hoge)
+○：console.log(” this is hoge : “, hoge)
+T.DOM要素を確認するときは、outerHTML等のプロパティを使うか、+演算子を使用しないようにする。
+
+
+
+オブジェクトをそのまま文字列に変換（暗黙的な型変換）すると、
+JavaScriptでは [object HTMLDivElement] という型名を表す文字列になります。
+要素の中身やHTMLを表示したいのに、要素オブジェクト自体を指定していることが原因です
+
+---
+
+Todo
+- [ ] Check Reviewed Code
