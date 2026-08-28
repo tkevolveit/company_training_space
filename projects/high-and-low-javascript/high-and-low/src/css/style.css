@@ -36,6 +36,8 @@ body {
     font-family: "DotGothic16", sans-serif;
     background-color: var(--secondary-color);
     color: var(--primary-color);
+    /* overflow: hidden; */
+    height: 100%;
 }
 
 h1 {
