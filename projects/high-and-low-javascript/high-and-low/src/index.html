@@ -112,7 +112,7 @@
                                 <!-- Streak Count -->
                                 <div class="text-container">
                                     <p class="text-center">
-                                        記録： <span data-streak-count="0">0</span>連勝!
+                                        記録： <span class="streak-count">0</span>連勝!
                                     </p>
                                 </div>
                     
@@ -132,10 +132,10 @@
                                 <div class="card-deck-grid">
                                     <!-- Heart -->
                                     <div class="card-container">
-                                        <div class="card-wrapper dealer">
+                                        <div class="card-wrapper">
                                             <img src="./images/heart/heart2.png" alt="">
                                         </div>
-                                        <div class="card-wrapper finished">
+                                        <div class="card-wrapper">
                                             <img src="./images/heart/heart3.png" alt="">
                                         </div>
                                         <div class="card-wrapper">
@@ -175,7 +175,7 @@
                                     
                                     <!-- Club -->
                                     <div class="card-container">
-                                        <div class="card-wrapper finished">
+                                        <div class="card-wrapper">
                                             <img src="./images/club/club2.png" alt="">
                                         </div>
                                         <div class="card-wrapper">
@@ -311,11 +311,11 @@
                                 <div class="card-spot-container">
                                     <div class="card-grid">
                                         <figure class="card">
-                                            <img src="./images/club/club1.png" alt="" data-dealer-rank="3">
+                                            <img class="dealer-card" src="./images/club/club1.png" alt="">
                                             <figcaption>親カード</figcaption>
                                         </figure>
                                         <figure class="card">
-                                            <img src="./images/backSide.png" alt="" data-player-rank="3">
+                                            <img src="./images/backSide.png" alt="">
                                             <figcaption>あなたのカード</figcaption>
                                         </figure>
                                     </div>
@@ -334,7 +334,7 @@
                     <div class="round-page">
                         <!-- Header -->
                         <header class="page-header">
-                            <h1 class="font-system">Win</h1>
+                            <h1 id="round-heading" class="font-system">Win</h1>
                         </header>
     
                         <!-- <header class="page-header">
@@ -351,11 +351,11 @@
                             <div class="round-card-container">
                                 <div class="card-grid">
                                     <figure class="card">
-                                        <img src="./images/club/club1.png" alt="">
+                                        <img class="dealer-card" src="./images/club/club1.png" alt="">
                                         <figcaption>親カード</figcaption>
                                     </figure>
                                     <figure class="card">
-                                        <img src="./images/club/club2.png" alt="">
+                                        <img class="player-card" src="./images/club/club2.png" alt="">
                                         <figcaption>あなたのカード</figcaption>
                                     </figure>
                                 </div>
@@ -390,7 +390,7 @@
                             <div class="text-container">
                                 <h2 class="text-center">今回の記録</h2>
                                 <p class="text-center">
-                                    記録： <span data-streak-count="0">0</span>連勝!
+                                    記録： <span class="streak-count">0</span>連勝!
                                 </p>
                             </div>
 

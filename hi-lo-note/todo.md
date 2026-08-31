@@ -17,10 +17,9 @@ Progess
 - 表示 (Display)
     - [x] すべてのhtmlを1htmlファイルに集約し、html表示部分を切り替えることりにより、画面を切り替える
     - [x] ボタンでHigh Lowどちらが押されたか出力してみる
-    - [ ] 何連勝目かの表示
+    - [x] 何連勝目かの表示
         - Game Page
         - Result Page
-        - Round Page
     - [ ] 勝利判定：ハイ or ローを選び、その結果を表示する
         - Round Page
         - Judge high or low from player select
