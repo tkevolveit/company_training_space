@@ -21,9 +21,10 @@ const titleBtn = document.getElementById('btn-title');
 // Content data
 const highOrLowEl = document.getElementById('high-or-low');
 const streakCounts = document.querySelectorAll('.streak-count');
-const playerRank = document.querySelector('[data-player-rank]');
-// const dealerRank = document.querySelector('[data-dealer-rank]');
+
+// Internl variables
 const dealerRank = document.querySelector('.dealer-rank');
+const playerRank = document.querySelector('.player-rank');
 
 // Add hidden class at first loading
 // 読み込み時にhiddenクラスを付与
@@ -32,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // gamePage.classList.add('hidden');
     // roundPage.classList.add('hidden');
     // resultPage.classList.add('hidden');
-    titlePage.classList.add('hidden');
+    // titlePage.classList.add('hidden');
 })
 
 /**
@@ -202,19 +203,7 @@ let dealerCardImgSrc = [];
 let playerCardImgSrc = [];
 
 currentIndex = 0;
-const totalCards = uniqueDeck.length;
-
-let shuffleIndex;
-let finishedCard = [];
-let usedCard = "";
-
-
-
-
-const resetGame = () => {
-    uniqueDeck = [];
-
-}
+let totalCards = uniqueDeck.length;
 
 
 // Cardを先にシャッフルしてから、要素を消してく
@@ -224,7 +213,8 @@ const resetGame = () => {
 // Random card
 const shuffleCards = () => {
     // Check out of cards and game over
-    if (finishedCard.length >= totalCards)  {
+    if (uniqueDeck && uniqueDeck.length === 0)  {
+        console.log("No card game over")
         changeDisplayPage(resultPage, gamePage);
     }
 
@@ -232,14 +222,13 @@ const shuffleCards = () => {
     // Access cards deck
     // Dealer
     // dealerCard = uniqueDeck[shuffleIndex];
-    shuffleIndex = Math.floor(Math.random() * (totalCards + 1));
+    shuffleIndex = Math.floor(Math.random() * uniqueDeck.length);
     const [dealerCard] = uniqueDeck.splice(shuffleIndex, 1);
-      console.log("dealer card", dealerCard);
-    console.log("残りの配列を確認：　", uniqueDeck.length)
+    // console.log("残りの配列を確認：　", uniqueDeck.length)
 
     // Check undefined []
     if (uniqueDeck && uniqueDeck.length > 0) {
-        console.log(uniqueDeck && uniqueDeck.length > 0);
+        // console.log(uniqueDeck && uniqueDeck.length > 0);
     }
 
     // playerCard = uniqueDeck[shuffleIndex];
@@ -249,17 +238,16 @@ const shuffleCards = () => {
     // console.log(dealerCard.children[0].src)
     // Update Dealer Card Path
     dealerCardImg.forEach(img  => {
-
         // Update src
         img.src = dealerCardImgSrc;
     })
 
     
     // Player
-    shuffleIndex2 = Math.floor(Math.random() * (totalCards + 1));
+    shuffleIndex2 = Math.floor(Math.random() * uniqueDeck.length);
     const [playerCard] = uniqueDeck.splice(shuffleIndex2, 1);
-    console.log("player card", playerCard);
-    console.log(uniqueDeck.splice(shuffleIndex2, 1))
+    // console.log("player card", playerCard);
+    // console.log(uniqueDeck.splice(shuffleIndex2, 1))
     console.log("残りの配列を確認2： ", uniqueDeck.length)
 
     playerCardImgSrc = playerCard.children[0].src;
@@ -268,23 +256,36 @@ const shuffleCards = () => {
     console.log(playerCardImgSrc)
 
 
-    let dealerCardRank;
-    let playerCardRank;
+    // Extract card rank from src
+    // 	http://127.0.0.1:5500/projects/high-and-low-javascript/high-and-low/src/images/club/club2.png
+    // club2 => 2
+    // (\d+) = 数字だけ全検索
+    // (?!.*\d)/) = 直前の数字以外はマッチさせない
+    // 参照：https://zenn.dev/usamik26/articles/regex-lookahead
+    let dealerCardRank = parseInt(dealerCardImgSrc.match(/(\d+)(?!.*\d)/g));
+    let playerCardRank = parseInt(playerCardImgSrc.match(/(\d+)(?!.*\d)/g));
 
-
-
-
-
-    // 使い終わったカードを抜き取って、別の配列へ入れる
-    usedCard = uniqueDeck.splice(dealerCard, 1);
-    finishedCard.push(usedCard);
-    // console.log(finishedCard)
+    console.log("dealer rank", dealerCardRank)
+    console.log(playerCardRank)
 
 
     // Add dealer class after using the card
     dealerCard.classList.add('dealer')
-    playerCard.classList.add('finished')
+    
+    // Pending -> finished after clicking continue
+    if (uniqueDeck.length > 1) {
+        playerCard.classList.add('finished')
+    }
+
+    // Check totalCards length
+    console.log("total", totalCards)
+    // console.log("total unique: ", uniqueDeck)
+    console.log("unique length", uniqueDeck.length)
 }
+
+
+
+
 
 // Switch pages - SPA
 // Title -> Rules

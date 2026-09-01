@@ -341,3 +341,147 @@ index.js:258 []
 空の配列に対して処理を行っている配列自体が空（[]）の状態で splice やシャッフルを適用し、その後に要素を取り出そうとすると undefined になります。処理の前に配列が空でないか、または undefined になっていないかを確認してください。javascriptif (array && array.length > 0) {
   // ここで処理を行う
 }
+
+
+---
+
+Using Regular Expressions (Best for Path Segments)If the text or number is hidden inside the URL path (like /users/42/profile), use a regular expression to match it.javascriptconst urlString = "https://example.com";
+
+// Match numbers in the path
+const match = urlString.match(/\/users\/(\d+)\//);
+const userId = match ? match[1] : null; // "42"
+
+
+
+Using split() (Best for Simple Slices)If the URL has a predictable structure separated by slashes (/), you can split the URL into an array.javascriptconst urlString = "https://example.com";
+const parts = urlString.split("/");
+
+// Find the item name after "items"
+const itemIndex = parts.indexOf("items");
+const itemName = itemIndex !== -1 ? parts[itemIndex + 1] : null; // "apple"
+
+
+
+---
+
+## ReGex
+Common ScenariosExtract only the last number:If your path has multiple numbers (e.g., /assets/v2/img_99.png) and you only want the final one.javascript
+```js
+const src = "/assets/v2/img_99.png";
+const lastNumber = src.match(/\d+(?=\D*$)/)[0];
+console.log(lastNumber); // Outputs: "99"
+```
+
+コードは注意してご使用ください。Extract all numbers as an array:javascriptconst 
+```js
+src = "/v2/user_45/pic_789.jpg";
+const allNumbers = src.match(/\d+/g);
+console.log(allNumbers); // Outputs: ["2", "45", "789"]
+```
+
+コードは注意してご使用ください。Safely handle missing numbers:Always check if a match exists to prevent code crashes.javascriptconst 
+
+```js
+src = "images/no-number.jpg";
+const match = src.match(/\d+/);
+const number = match ? match[0] : "No number found";
+```
+コードは注意してご使用ください。RegEx Breakdown\d matches any digit (0-9).+ matches one or more digits in a row.g flag finds all matches instead of just the first one.
+
+
+How the Regex Works
+\d matches any digit (0-9).
++ matches one or more digits in a row.
+[0] grabs the first successful match found.
+
+\ - Reservered word (escape sequence)
+/ - start regex pattern
++ - 直前の文字の１文字以上の繰り返しにマッチする。
+$ - 行の末尾にマッチする。
+\D - 数字以外に一致。"[^0-9]"と同意
+* -  直前の文字の０回以上の繰り返しにマッチする。
+
+Reference:
+- https://qiita.com/iLLviA/items/b6bf680cd2408edd050f
+
+
+### lookahead
+regex negative lookahead is a zero-width assertion syntax used to match a specific position in a string only if it is not followed by a designated pattern.
+Syntax: (?!pattern)
+
+
+
+---
+## Extract only last number REGEX
+
+```js
+const url = "https://example.com";
+const match = url.match(/(\d+)(?!.*\d)/);
+
+const lastNumber = match ? match[1] : null;
+
+console.log(lastNumber); // "456"
+```
+
+Notes:
+
+\d+ captures the last contiguous sequence of digits; group 1 contains the number.
+If you need to match negative integers or decimals, adjust the digit portion (e.g., -?\d+(?:.\d+)?).
+
+### How It Works
+* `\d+` matches one or more digits.
+* `(?!.*\d)` is a negative lookahead ensuring that no more digits exist anywhere later in the string.
+* Capturing parentheses `(...)` isolate the digits so you can retrieve them via `match[1]`.
+---
+
+### match method
+JavaScriptの match() メソッドは、文字列から正規表現に一致する部分を検索・取得するための標準機能です。
+
+
+regexp): 正規表現オブジェクト（RegExp）。正規表現以外のオブジェクトを渡した場合は、暗黙的に new RegExp(regexp) へ変換されます。
+戻り値: 一致した場合は「配列」、一致しない場合は null を返します。
+
+
+
+---
+
+#### group regex (\d+)(?!.*\d)/g)
+
+正規表現 (\d+)(?!.*\d) の意味は、「文字列の中で最後に登場する連続した数字」をキャプチャグループとして抽出するパターンです。
+最後の /g フラグにより、文字列全体（グローバル）を対象に検索します。
+各パーツの分解解説
+(\d+) (第1グループ)
+\d は数字（0〜9）を表します。
++ は1回以上の繰り返しを表します。
+() はグループ化（キャプチャ）を意味し、マッチした数字を抽出します。
+(?!.*\d) (否定先読み / Negative Lookahead)(?! ... ) は「この後に ... が続かないこと」を条件とする制約です。
+.* は任意の文字（改行を除く）の0回以上の繰り返しです。
+\d は数字です。
+つまり、「この数字のパターンの後ろには、もう二度と数字が登場しない」という条件になります。
+
+具体的なマッチ例
+対象文字列: abc123def456ghi123 の後ろには 456（数字）があるのでマッチしません。
+456 の後ろには数字がもう無いので、456 がグループ1として抽出されます。
+対象文字列: file_version_9.txt
+文字列内の最後の数字である 9 が抽出されます。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Read
+JavaScript、乱数の範囲や重複を指定〜Math.random使い方
+- https://fuuno.net/web02/random/random.html
+
+Fisher–Yatesシャッフルのやさしい解説
+- Fisher–Yates shuffle
