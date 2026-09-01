@@ -23,8 +23,8 @@ const highOrLowEl = document.getElementById('high-or-low');
 const streakCounts = document.querySelectorAll('.streak-count');
 
 // Internl variables
-const dealerRank = document.querySelector('.dealer-rank');
-const playerRank = document.querySelector('.player-rank');
+let dealerRank = 0;
+let playerRank = 0;
 
 // Add hidden class at first loading
 // 読み込み時にhiddenクラスを付与
@@ -108,19 +108,18 @@ const roundHeading = document.getElementById('round-heading');
 const gameJudge = (btnVal) => {
     const rank = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 1];
 
-    playerRank = 1; // strongest
-    dealerRank = 2;
+    // playerRank = 1; // strongest
+    // dealerRank = 2;
 
     let currentPlayerRank = parseInt(playerRank)
     let currentDealerRank = parseInt(dealerRank)
-    
 
     // Access rank and convert element value to index num
     // rankにアクセスしてcurrentPlayerRankの値をindexに更新し、強さの値をルールに揃える 
     currentPlayerRank = rank.indexOf(currentPlayerRank);
     currentDealerRank = rank.indexOf(currentDealerRank);
-    // console.log("p", currentPlayerRank)
-    // console.log("d", currentDealerRank)
+    console.log("p", currentPlayerRank)
+    console.log("d", currentDealerRank)
 
 
     // Test
@@ -151,6 +150,7 @@ const gameJudge = (btnVal) => {
 
             roundHeading.textContent = "Lose";
             roundHeading.classList.add("text-red");
+            continueBtn.classList.add("hidden");
             console.log("game over");
         }
     } else if (buttonJudge === "high") {
@@ -175,10 +175,10 @@ const gameJudge = (btnVal) => {
 
             roundHeading.textContent = "Lose";
             roundHeading.classList.add("text-red");
+            continueBtn.classList.add("hidden");
         }
     }
 }
-
 
 /**
  * Card Display and Extract ranks
@@ -192,30 +192,24 @@ const allDeckCards = document.querySelectorAll('.card-wrapper');
 const uniqueDeck = Array.from(new Set(allDeckCards));
 
 // For display card spot and round page.
-let dealerCard;
-let playerCard;
+let spotDealerCard;
+let spotPlayerCard;
 
 // Update img src
 const dealerCardImg = document.querySelectorAll('.dealer-card');
 const playerCardImg = document.querySelector('.player-card');
-console.log(playerCardImg)
 let dealerCardImgSrc = [];
 let playerCardImgSrc = [];
 
-currentIndex = 0;
 let totalCards = uniqueDeck.length;
 
 
-// Cardを先にシャッフルしてから、要素を消してく
-// shuffleIndex = Math.floor(Math.random() * totalCards)
-
-
 // Random card
-const shuffleCards = () => {
+const startGame = () => {
     // Check out of cards and game over
     if (uniqueDeck && uniqueDeck.length === 0)  {
-        console.log("No card game over")
-        changeDisplayPage(resultPage, gamePage);
+        console.log("No more card!! GAME OVER")
+        // changeDisplayPage(resultPage, gamePage);
     }
 
     // クリックのたびにシャッフル
@@ -227,15 +221,15 @@ const shuffleCards = () => {
     // console.log("残りの配列を確認：　", uniqueDeck.length)
 
     // Check undefined []
-    if (uniqueDeck && uniqueDeck.length > 0) {
-        // console.log(uniqueDeck && uniqueDeck.length > 0);
-    }
+    // if (uniqueDeck && uniqueDeck.length > 0) {
+    //     console.log(uniqueDeck && uniqueDeck.length > 0);
+    // }
 
     // playerCard = uniqueDeck[shuffleIndex];
     // shuffleで要素を取得したらsrcの更新で画面と値をリンクさせる
     // Update image src
     dealerCardImgSrc = dealerCard.children[0].src;
-    // console.log(dealerCard.children[0].src)
+
     // Update Dealer Card Path
     dealerCardImg.forEach(img  => {
         // Update src
@@ -246,18 +240,16 @@ const shuffleCards = () => {
     // Player
     shuffleIndex2 = Math.floor(Math.random() * uniqueDeck.length);
     const [playerCard] = uniqueDeck.splice(shuffleIndex2, 1);
-    // console.log("player card", playerCard);
-    // console.log(uniqueDeck.splice(shuffleIndex2, 1))
-    console.log("残りの配列を確認2： ", uniqueDeck.length)
+    // console.log("残りの配列を確認2： ", uniqueDeck.length)
 
+    // Update image
     playerCardImgSrc = playerCard.children[0].src;
     playerCardImg.src = playerCardImgSrc;
 
-    console.log(playerCardImgSrc)
 
-
+    // CARD RANK
     // Extract card rank from src
-    // 	http://127.0.0.1:5500/projects/high-and-low-javascript/high-and-low/src/images/club/club2.png
+    // http://127.0.0.1:5500/projects/high-and-low-javascript/high-and-low/src/images/club/club2.png
     // club2 => 2
     // (\d+) = 数字だけ全検索
     // (?!.*\d)/) = 直前の数字以外はマッチさせない
@@ -265,29 +257,77 @@ const shuffleCards = () => {
     let dealerCardRank = parseInt(dealerCardImgSrc.match(/(\d+)(?!.*\d)/g));
     let playerCardRank = parseInt(playerCardImgSrc.match(/(\d+)(?!.*\d)/g));
 
-    console.log("dealer rank", dealerCardRank)
-    console.log(playerCardRank)
+    // Update global variables
+    dealerRank = dealerCardRank;
+    playerRank = playerCardRank;
+
+    // console.log("dealer rank", dealerCardRank, dealerRank)
+    // console.log(playerCardRank, playerCardRank)
 
 
     // Add dealer class after using the card
     dealerCard.classList.add('dealer')
     
-    // Pending -> finished after clicking continue
+    // Pending -> finished after clicking high or low
     if (uniqueDeck.length > 1) {
-        playerCard.classList.add('finished')
+        playerCard.classList.add('used')
     }
 
+    // Update global variables both dealer and player spot cards
+    spotDealerCard = dealerCard;
+    spotPlayerCard = playerCard;
+    console.log("spot dealer", spotDealerCard);
+    console.log("spot player", spotPlayerCard);
+
+    // console.log("d", dealerCard)
+    // console.log("p", playerCard)
+
     // Check totalCards length
-    console.log("total", totalCards)
+    // console.log("total", totalCards)
     // console.log("total unique: ", uniqueDeck)
     console.log("unique length", uniqueDeck.length)
 }
 
+// Last round no need to add class
+const addFinishedClass = (dealerCard, playerCard) => {
+    // Add finished class to used card
+    if (uniqueDeck.length > 1) {
+        // Dealer
+        dealerCard.classList.remove('dealer');
+        dealerCard.classList.add('finished');
+        // console.log("spot", spotDealerCard);
+        
+        // Player
+        playerCard.classList.remove('used');
+        playerCard.classList.add('finished');
+        // console.log("spot", spotPlayerCard);
+    } 
+}
+
+// Reset statement
+// streak count
+// card classes
+// deck length
+// 
+const clearGameState = () => {
+    streakCounts.forEach(count => count.textContent = 0);
+
+    allDeckCards.forEach(cardEl => {
+        console.log(cardEl)
+        cardEl.classList.remove("used")
+        cardEl.classList.remove("dealer")
+        cardEl.classList.remove("finished")
+        console.log(cardEl)
+    })
+
+    console.log(uniqueDeck.length)
+
+    // console.log(allDeckCards);
+    console.log("Game is cleared")
+}
 
 
-
-
-// Switch pages - SPA
+// Switch pages
 // Title -> Rules
 ruleBtn.addEventListener('click', () => {
     changeDisplayPage(rulesPage, titlePage);
@@ -299,8 +339,8 @@ backBtn.addEventListener('click', () => {
 })
 
 playBtn.addEventListener('click', () => {
-    // dealerCard.classList.add('dealer')
-    changeDisplayPage(gamePage, titlePage);
+    startGame();
+    // changeDisplayPage(gamePage, titlePage);
 })
 
 homeBtn.addEventListener('click', () => {
@@ -316,35 +356,39 @@ homeBtn.addEventListener('click', () => {
 //     gameJudge(btnVal);
 // })
 
-// lowBtn.addEventListener('click', (e) => {
-//     const btnVal = e.target.value.toLowerCase();
+lowBtn.addEventListener('click', (e) => {
+    const btnVal = e.target.value.toLowerCase();
     
-//     changeHighOrLowSpanContent(e)
-//     changeDisplayPage(roundPage, gamePage);
-    
-//     gameJudge(btnVal);
-// })
+    changeHighOrLowSpanContent(e)
+    // changeDisplayPage(roundPage, gamePage);
 
-continueBtn.addEventListener('click', () => {
-    // Add finished class after using the card
-    // if (dealerCard.classList.contains('dealer')) {
-    //     dealerCard.classList.remove('dealer')
-    //     dealerCard.classList.add('finished')
-    // }
-    // playerCard.classList.add('finished')
+    // Check No card
+    if (uniqueDeck && uniqueDeck.length === 0) {
+        console.log("last round", uniqueDeck.length)
+        continueBtn.classList.add("hidden")
+    }
 
-    // changeDisplayPage(gamePage, roundPage);
+    addFinishedClass(spotDealerCard, spotPlayerCard);
+
+    gameJudge(btnVal);
 })
+
+// continueBtn.addEventListener('click', () => {
+//     startGame();
+//     changeDisplayPage(gamePage, roundPage);
+// })
 
 resultBtn.addEventListener('click', () => {
     page.classList.add('page--result');
     // changeDisplayPage(resultPage, roundPage);
 })
 
-retryBtn.addEventListener('click', () => {
-    page.classList.remove('page--result');
-    changeDisplayPage(gamePage, resultPage);
-})
+// retryBtn.addEventListener('click', () => {
+//     page.classList.remove('page--result');
+    
+//     clearGameState()
+//     changeDisplayPage(gamePage, resultPage);
+// })
 
 titleBtn.addEventListener('click', () => {
     page.classList.remove('page--result');
@@ -357,16 +401,29 @@ titleBtn.addEventListener('click', () => {
 highBtn.addEventListener('click', (e) => {
     const btnVal = e.target.value.toLowerCase();
     
-    shuffleCards();
-
-    // Round page 
-    // changeHighOrLowSpanContent(e)
+    changeHighOrLowSpanContent(e)
     // changeDisplayPage(roundPage, gamePage);
-    
+
+    // Check No card
+    if (uniqueDeck && uniqueDeck.length === 0) {
+        console.log("last round", uniqueDeck.length)
+        continueBtn.classList.add("hidden")
+    }
+
+    addFinishedClass(spotDealerCard, spotPlayerCard);
+
     // gameJudge(btnVal);
 })
 
+continueBtn.addEventListener('click', () => {
+    console.log("continue");
 
-// lowBtn.addEventListener("click",  () => {
-//     resetGame();
-// });
+     startGame();
+})
+
+retryBtn.addEventListener('click', () => {
+    // page.classList.remove('page--result');
+    
+    clearGameState()
+    // changeDisplayPage(gamePage, resultPage);
+})

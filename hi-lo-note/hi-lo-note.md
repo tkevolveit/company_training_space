@@ -88,11 +88,16 @@ Logic parts
 - 
 
 
-Remaining
-- カードのランダム表示
-- カード状況の表示
+Remaining - feature
 - 特定ボタンからのラウンド(Game reset)リセット
-- 
+  - Retry
+  - Start
+  - Home icon
+    Reset
+      - Streak count
+      - Deck length
+      - Card classes
+      - 
 
 
 Finished
@@ -106,8 +111,24 @@ Finished
 8. 相手のカードと自分のカードの数の大小判定
     Aの処理
 9. Round headingの表示
+10. カードのランダム表示
+11. カード状況の表示
+12. カード使い切った時の、ボタン表示制御
 
-Total 11?
+Total 13?
+
+---
+
+## My Development Process
+- Write flowchart or diagram (Overview not deep detailed)
+- Code a logic
+- Code a features functions
+- Write DFD (Data flow diagram) to understand data flow and trigger timing
+- Refactoring
+  - Not combined many feature in a function
+  - Function must be one simple feature, like, shuffle, display, updateImg, etc...
+
+
 
 ---
 
@@ -466,17 +487,113 @@ regexp): 正規表現オブジェクト（RegExp）。正規表現以外のオ�
 文字列内の最後の数字である 9 が抽出されます。
 
 
+---
+
+## 🛠️ Syntax and Mechanics
+Syntax: (?!pattern)
+Zero-Width: It does not consume any characters in the string; it only validates the condition and leaves the regex cursor in place.
+Logical Exclution: If the pattern inside (?!...) succeeds, the whole match attempt fails at that position.
+
+💡 Common Use Cases & Examples
+1. Conditional Character MatchingMatch the letter q only if it is not followed by the letter u.
+Regex: q(?!u)
+Matches: qat, qan, qaid
+Fails: queen, quiet
+
+2. Filtering Out Specific WordsMatch any word except for the word "Error".
+Regex: \b(?!Error\b)\w+\b
+Matches: Success, Warning, Alert
+Fails: Error
+
+3. Protocol CleanupMatch the string http only when it is not part of https (useful for upgrading legacy links without breaking existing secure ones).
+Regex: http(?!s)
+Matches: http://example.com
+Fails: https://example.com
+
+⚠️ Engine LimitationsKeep in mind that not all regex engines support lookaheads.
+Supported by: JavaScript, Python, PCRE (PHP/Perl), and .NET.
+Unsupported by: RE2 (used by Go and Prometheus) due to performance constraints
+
+
+---
+
+
+## Clear game statement
+
+#### wipe out classes
+
+Remove class attribute
+One simple way to completely remove all tokens is to set the class attribute with setAttribute to an empty string, like so:
+```js
+element.setAttribute('class', '')
+```
+
+```js
+element.className = ''
+```
+
+
+
+- https://foobartel.com/notes/clearing-a-classlist
+
+
+---
+
+### forEach
+NodeList and HTMLCollection
+
+
+Using .childNodes (NodeList)
+The .childNodes property returns a NodeList, which supports the .forEach() method directly:javascript
+```js
+const parentElement = document.getElementById("parent");
+
+parentElement.childNodes.forEach((node) => {
+  console.log(node);
+});
+```
+
+コードは注意してご使用ください。
+Note: .childNodes includes element nodes, text nodes (like whitespace), and comment nodes.
+
+Using .children (HTMLCollection)
+The .children property returns an HTMLCollection, which does not have a .forEach() method. To use .forEach(), convert it using Array.from():javascript
+```js
+const parentElement = document.getElementById("parent");
+
+Array.from(parentElement.children).forEach((element) => {
+  console.log(element);
+});
+```
+
+コードは注意してご使用ください。
+sNote: .children only returns HTML element nodes and ignores text or comments.
+
+---
+
+
+How to Undo a SpliceBecause splice() returns an array containing the elements that were removed, you can save those deleted items into a variable. If you need to undo the operation, use splice() again to insert the saved items back into their original starting index.javascript
+```js
+let fruits = ['apple', 'banana', 'cherry', 'date'];
+
+// 1. Perform the splice and SAVE the removed elements
+let startIndex = 1;
+let deleteCount = 2;
+let removedItems = fruits.splice(startIndex, deleteCount); 
+
+console.log(fruits);       // ['apple', 'date']
+console.log(removedItems); // ['banana', 'cherry']
+
+// 2. UNDO the splice by inserting the removed items back
+fruits.splice(startIndex, 0, ...removedItems);
+
+console.log(fruits);       // ['apple', 'banana', 'cherry', 'date'] (Restored!)
+```
 
 
 
 
-
-
-
-
-
-
-
+---
 
 
 Read

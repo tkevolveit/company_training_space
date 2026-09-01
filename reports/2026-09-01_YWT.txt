@@ -1,8 +1,6 @@
-Y.カードデッキから場に出すカードをランダムで重複せず2つの要素で取り出し、
-カードデッキが０になるまでの処理にしたかった。
-W.splice()を使用して使用したカードの要素を除外することは出来たが、
-データの無い部分まで見に行ってundefinedになることが分かった。
-T.while文かfor文を使って、要素が見つかるまで探し直すことをしてundefinedにならないように試す。
+Y.JavaScriptで不要になったclassを外す。
+W.要素.classList.remove("")か要素.setAttribute('class', '')等で外せることが分かった。
+T.要素.classList.remove("")を使用してカードに付与した不要となったクラスを外す。
 
 
 
@@ -10,4 +8,5 @@ T.while文かfor文を使って、要素が見つかるまで探し直すこと�
 ---
 
 Todo
-- [ ] Check Reviewed Code
+- [ ] Where is the game trigger?
+
