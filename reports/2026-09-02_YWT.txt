@@ -1,10 +1,35 @@
-Y.
-W.
-T.
+Y.コードにコメントを付けた
+W.細かすぎるコメントになっている気がする
+T.簡潔なコメントになるようにしてみる
+
+Y.関数のreturnの必要性
+W.関数について何気なく使っていたことが分かった
+return必要：関数による実行の結果（戻り値）を取得し、他のところでその値を利用したいとき
+return不要：単に関数の処理が実行されればそれで良い場合はreturnは必要なし
+T.returnが必要かどうか意識して使用する
+
+No return then function returns undefined
 
 
+Y.ゲーム初期化時、取得してきたDOMを無くす
+W.DOMはtextContent = ""　で無くすのが良いのか、他のやり方が良いのか扱いが不明ということが分かった。
+T..remove()かnullかreplaceChildren()かtextContentをしようして初期化する。
+
+If you want to remove it completely (from DOM + memory),
+you need to clear the variable reference:
+
+
+
+Read the articles
+- https://web-de-asobo.net/2023/01/06/javascript-return/
+- https://dev.to/edriso/two-types-of-return-in-arrow-functions-implicit-vs-explicit-2j90
+- https://qiita.com/kznrluk/items/6a9ffa68b3893928ea63
 
 ---
+
+DOM
+- https://medium.com/@yuvaraj.io/lesson-48-how-to-remove-elements-from-the-dom-in-javascript-f9e453dbbd53
+
 
 Todo
 - [ ] Check Reviewed Code

@@ -97,7 +97,7 @@ Remaining - feature
       - Streak count
       - Deck length
       - Card classes
-      - 
+
 
 
 Finished
@@ -514,6 +514,22 @@ Fails: https://example.com
 Supported by: JavaScript, Python, PCRE (PHP/Perl), and .NET.
 Unsupported by: RE2 (used by Go and Prometheus) due to performance constraints
 
+---
+
+### Positive lookahead (?=.png) 
+この正規表現表現 (?=.png) は、「直後に .png という文字列が続く位置」にマッチする肯定先読み（Positive Lookahead）という機能です。
+文字そのものを選択するのではなく、条件を満たす「位置」を探します。
+
+💡 主な特徴
+文字を消費しない: .png という文字自体はマッチした結果（選択範囲）に含まれません。
+位置の特定: 「.png の直前の位置」を指定するために使います。
+
+例えば、image1.png から image1 だけを抜き出したい場合、以下のように組み合わせます。
+
+正規表現: [^.]+(?=.png)対象テキスト: image
+1.pngマッチする部分: image1 （.png の直前にあるドット以外の文字）
+2. 文字の挿入置換機能を使って、.png の直前に文字（例: _backup）を挿入したいときに便利です。検索対象: (?=.png)置換後の文字列: _backup結果: photo.png ➔ photo_backup.png
+
 
 ---
 
@@ -572,7 +588,8 @@ sNote: .children only returns HTML element nodes and ignores text or comments.
 ---
 
 
-How to Undo a SpliceBecause splice() returns an array containing the elements that were removed, you can save those deleted items into a variable. If you need to undo the operation, use splice() again to insert the saved items back into their original starting index.javascript
+### How to Undo a Splice
+Because splice() returns an array containing the elements that were removed, you can save those deleted items into a variable. If you need to undo the operation, use splice() again to insert the saved items back into their original starting index.javascript
 ```js
 let fruits = ['apple', 'banana', 'cherry', 'date'];
 
@@ -590,12 +607,160 @@ fruits.splice(startIndex, 0, ...removedItems);
 console.log(fruits);       // ['apple', 'banana', 'cherry', 'date'] (Restored!)
 ```
 
+---
 
+## Function 
+
+In JavaScript, a function declared with const (known as an arrow function) can either return a value or not return a value, depending entirely on how you write its syntax. If a function does not have an explicit return statement, it automatically returns undefined.
+
+Here is a breakdown of how returns work with const functions:
+1. Implicit Return (No return keyword needed)
+If your arrow function is a single line, you can omit both the curly braces {} and the return keyword. The expression is returned automatically.
+```js
+// Automatically returns the sum
+const add = (a, b) => a + b; 
+
+console.log(add(5, 3)); // Outputs: 8
+```
+
+2. Explicit Return (Requires return keyword)
+If you use curly braces {} to create a multi-line function block, you must use the return keyword if you want to send a value back.
+```js
+const calculateTotal = (price, tax) => {
+  const total = price + tax;
+  return total; // Explicitly returning the value
+};
+
+console.log(calculateTotal(10, 2)); // Outputs: 12
+```
+
+3. No Return (Returns undefined)
+If your function just performs an action (like logging to a console or modifying an external variable) and you do not use the return keyword inside curly braces, it will return undefined by default.
+```js
+const sayHello = (name) => {
+  console.log(`Hello, ${name}!`);
+  // No return statement here
+};
+
+const result = sayHello("Alice"); // Logs: "Hello, Alice!"
+console.log(result); // Outputs: undefined
+```
+
+---
+
+## Arrow function 
+In JavaScript, a "const function" refers to a function assigned to a variable declared with the const keyword. This approach is heavily favored in modern JavaScript (ES6+) because it prevents the function from being accidentally overwritten or reassigned elsewhere in your code.
+
+Arrow function
+```js
+const greet = (name) => {
+  return `Hello, ${name}!`;
+};
+
+// Or as a concise one-liner:
+const add = (a, b) => a + b;
+```
+
+
+Anonymous Function
+```js
+const multiply = function(a, b) {
+  return a * b;
+};
+```
+
+🔒Safety Against Reassignment
+
+If you define a function using the traditional function keyword, or with var or let, it can be overwritten later, leading to hard-to-find runtime bugs. Using const throws a compile/runtime error if any code attempts to overwrite it
+
+```js
+// Dangerous traditional way:
+function logData() { console.log("Data"); }
+logData = "Oops, I am a string now"; 
+logData(); // ❌ TypeError: logData is not a function
+
+// Safe const way:
+const processData = () => { console.log("Processing"); };
+processData = "Attempting to change"; // ❌ TypeError: Assignment to constant variable.
+
+```
 
 
 ---
 
 
+JavaScriptでDOMを更新する関数において return（戻り値）がないのは、呼び出し元へ結果を返す必要がない（副作用のみを目的としている）ためです。
+
+なぜ return がいらないのか？
+DOMの更新は「副作用」: textContent や innerHTML の書き換え、要素の追加・削除などは、ブラウザ上のメモリ（DOMツリー）を直接変更する操作です。
+
+これらは関数内部で完結するため、呼び出し元に値を返す必要がありません。
+戻り値の省略は undefined: JavaScriptでは return 文を書かない場合、自動的に undefined が返されます。DOM操作を行う関数の多くは、実行して画面を変えることが目的なので、返り値を気にする必要はありません。
+具体例（returnなしのDOM更新関数）
+```js
+// 要素のテキストを更新する関数（returnなし）
+const updateText = (selector, newText) => {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.textContent = newText; // DOMを直接書き換える（副作用）
+  }
+  // return を書かないので、暗黙的に undefined が返る
+};
+
+// 使い方
+updateText('#my-heading', '新しいタイトル');
+```
+このように、画面の表示を切り替えたり、クラスを付け外ししたりする関数は、値を計算して次の処理に渡す必要がないため return を書きません。
+
+
+To update the DOM using an arrow function without a return statement, you can use either a block body with curly braces or a single-line expression body. Since DOM updates (like changing text or styles) are side effects, you do not need to return a value.
+
+
+1. Block Body (Recommended for side effects)
+Use curly braces {}. 
+The code executes, returns nothing (undefined), and avoids common linter warnings regarding implicit returns.
+
+```js
+const updateText = (elementId, newText) => {
+  document.getElementById(elementId).textContent = newText;
+};
+```
+
+2. Expression Body (Single line)Omit the curly braces {}. 
+The single line of code will run and execute the DOM update instantly.
+```js
+const changeColor = (element, color) => element.style.backgroundColor = color;
+```
+
+Note: This technically utilizes an "implicit return," meaning it returns the result of the assignment expression, but the browser completely ignores that value while successfully updating the DOM.Practical Event Listener ExamplesHandling a click event with a Block Body:
+```js
+const button = document.querySelector('#submit-btn');
+
+button.addEventListener('click', () => {
+  document.querySelector('#status').className = 'success';
+});
+```
+
+Handling an input event with a Single Line:
+```js
+const input = document.querySelector('#username');
+
+// Updates a live preview paragraph as the user types
+input.addEventListener('input', (e) => document.querySelector('#preview').innerText = e.target.value);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+---
 Read
 JavaScript、乱数の範囲や重複を指定〜Math.random使い方
 - https://fuuno.net/web02/random/random.html
