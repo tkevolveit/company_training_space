@@ -21,6 +21,6 @@ cd "$DEST_DIR" || { echo "Directory not found. Existing."; exit 1; }
 TODAY=$(date +%Y-%m-%d)
 
 # Copy and rename file
-cp "$SOURCE" "$DEST_DIR/$TODAY_YWT.txt"
+cp "$SOURCE" "./${TODAY}_YWT.txt"
 
 echo "Copied to $DEST_DIR/$TODAY_YWT.txt"

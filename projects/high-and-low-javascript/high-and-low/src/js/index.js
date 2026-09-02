@@ -29,7 +29,8 @@ let playerRank = 0;
 // Add hidden class at first loading
 // 読み込み時にhiddenクラスを付与
 window.addEventListener('DOMContentLoaded', () => {
-    rulesPage.classList.add('hidden');
+    clearGameState();
+    // rulesPage.classList.add('hidden');
     // gamePage.classList.add('hidden');
     // roundPage.classList.add('hidden');
     // resultPage.classList.add('hidden');
@@ -64,7 +65,7 @@ const changeDisplayPage = (showEl, hideEl) => {
  * Assign the value to highOrLowEl and update
  */
 /**
- * 
+ * changeHighOrLowSpanContent - プレイヤーが選択したボタンを表示
  * @param {*} e はhighBtnかlowBtnのクリックイベントからこの関数へパスしてきます
  * 取得したbutton情報からvalueを取得し大文字へ変換して、
  * highOrLowElへvalueを渡しています。
@@ -118,8 +119,8 @@ const gameJudge = (btnVal) => {
     // rankにアクセスしてcurrentPlayerRankの値をindexに更新し、強さの値をルールに揃える 
     currentPlayerRank = rank.indexOf(currentPlayerRank);
     currentDealerRank = rank.indexOf(currentDealerRank);
-    console.log("p", currentPlayerRank)
-    console.log("d", currentDealerRank)
+    // console.log("player rank: ", currentPlayerRank)
+    // console.log("dealer rank: ", currentDealerRank)
 
 
     // Test
@@ -189,7 +190,7 @@ const gameJudge = (btnVal) => {
  */
 // typeof allDeckCards is object
 const allDeckCards = document.querySelectorAll('.card-wrapper');
-const uniqueDeck = Array.from(new Set(allDeckCards));
+const uniqueDeck = Array.from(allDeckCards);
 
 // For display card spot and round page.
 let spotDealerCard;
@@ -204,7 +205,7 @@ let playerCardImgSrc = [];
 let totalCards = uniqueDeck.length;
 
 
-// Random card
+// Start Random card
 const startGame = () => {
     // Check out of cards and game over
     if (uniqueDeck && uniqueDeck.length === 0)  {
@@ -212,7 +213,7 @@ const startGame = () => {
         // changeDisplayPage(resultPage, gamePage);
     }
 
-    // クリックのたびにシャッフル
+    // クリックのたびにdeckシャッフル
     // Access cards deck
     // Dealer
     // dealerCard = uniqueDeck[shuffleIndex];
@@ -276,8 +277,8 @@ const startGame = () => {
     // Update global variables both dealer and player spot cards
     spotDealerCard = dealerCard;
     spotPlayerCard = playerCard;
-    console.log("spot dealer", spotDealerCard);
-    console.log("spot player", spotPlayerCard);
+    // console.log("spot dealer", spotDealerCard);
+    // console.log("spot player", spotPlayerCard);
 
     // console.log("d", dealerCard)
     // console.log("p", playerCard)
@@ -285,7 +286,7 @@ const startGame = () => {
     // Check totalCards length
     // console.log("total", totalCards)
     // console.log("total unique: ", uniqueDeck)
-    console.log("unique length", uniqueDeck.length)
+    console.log("Remaining Cards: ", uniqueDeck.length)
 }
 
 // Last round no need to add class
@@ -304,25 +305,35 @@ const addFinishedClass = (dealerCard, playerCard) => {
     } 
 }
 
-// Reset statement
-// streak count
-// card classes
-// deck length
-// 
+/**
+ * Reset Game Statement
+ * DEFAULT STATEMENT:
+ * - streakCount = 0 
+ * - roundHeading = 'Enjoy!🏋 <- Any text ok user never see this.
+ * - highOrLowEl = '🍋🍇🍐🥑🍔🍜' <- Any text ok user never see this.
+ * - div.card-wrapper = only card-wrapper class
+ * - continueBtn = remove hidden class
+ * - uniqueDeck needs to be reassign allDeckCards as array since it has destroy the element by splice(). Restore is important for retry game.
+ */
 const clearGameState = () => {
     streakCounts.forEach(count => count.textContent = 0);
+    roundHeading.textContent = 'Enjoy!🏋';
+    highOrLowEl.textContent = '🍋🍇🍐🥑🍔🍜';
 
     allDeckCards.forEach(cardEl => {
-        console.log(cardEl)
+        // console.log(cardEl)
         cardEl.classList.remove("used")
         cardEl.classList.remove("dealer")
         cardEl.classList.remove("finished")
-        console.log(cardEl)
+        // console.log(cardEl)
     })
 
-    console.log(uniqueDeck.length)
+    continueBtn.classList.remove("hidden")
 
+    const uniqueDeck = Array.from(allDeckCards);
+    console.log("RELOAD...Initial Deck: ", uniqueDeck.length)
     // console.log(allDeckCards);
+
     console.log("Game is cleared")
 }
 
@@ -344,86 +355,67 @@ playBtn.addEventListener('click', () => {
 })
 
 homeBtn.addEventListener('click', () => {
-    changeDisplayPage(titlePage, gamePage);
+    clearGameState();
+    // changeDisplayPage(titlePage, gamePage);
 })
 
-// highBtn.addEventListener('click', (e) => {
-//     const btnVal = e.target.value.toLowerCase();
-    
-//     changeHighOrLowSpanContent(e)
-//     changeDisplayPage(roundPage, gamePage);
+highBtn.addEventListener('click', (e) => {
+    const btnVal = e.target.value.toLowerCase();
 
-//     gameJudge(btnVal);
-// })
+    // Check No card to hide continueBtn
+    if (uniqueDeck && uniqueDeck.length === 0) {
+        console.log("last round", uniqueDeck.length)
+        continueBtn.classList.add("hidden")
+    }
+
+    changeHighOrLowSpanContent(e)
+    addFinishedClass(spotDealerCard, spotPlayerCard);
+    gameJudge(btnVal);
+    // changeDisplayPage(roundPage, gamePage);
+})
 
 lowBtn.addEventListener('click', (e) => {
     const btnVal = e.target.value.toLowerCase();
     
-    changeHighOrLowSpanContent(e)
-    // changeDisplayPage(roundPage, gamePage);
-
     // Check No card
     if (uniqueDeck && uniqueDeck.length === 0) {
         console.log("last round", uniqueDeck.length)
         continueBtn.classList.add("hidden")
     }
 
+    changeHighOrLowSpanContent(e)
     addFinishedClass(spotDealerCard, spotPlayerCard);
-
     gameJudge(btnVal);
+
+    // changeDisplayPage(roundPage, gamePage);
 })
 
-// continueBtn.addEventListener('click', () => {
-//     startGame();
-//     changeDisplayPage(gamePage, roundPage);
-// })
+continueBtn.addEventListener('click', () => {
+    console.log("continue");
+
+    startGame();
+    // changeDisplayPage(gamePage, roundPage);
+})
 
 resultBtn.addEventListener('click', () => {
     page.classList.add('page--result');
     // changeDisplayPage(resultPage, roundPage);
 })
 
-// retryBtn.addEventListener('click', () => {
-//     page.classList.remove('page--result');
+retryBtn.addEventListener('click', () => {
+    page.classList.remove('page--result');
     
-//     clearGameState()
-//     changeDisplayPage(gamePage, resultPage);
-// })
+    clearGameState();
+    // changeDisplayPage(gamePage, resultPage);
+})
 
 titleBtn.addEventListener('click', () => {
     page.classList.remove('page--result');
-    changeDisplayPage(titlePage, resultPage);
+
+    clearGameState();
+    // changeDisplayPage(titlePage, resultPage);
 })
 
 
 
-// Test
-highBtn.addEventListener('click', (e) => {
-    const btnVal = e.target.value.toLowerCase();
-    
-    changeHighOrLowSpanContent(e)
-    // changeDisplayPage(roundPage, gamePage);
-
-    // Check No card
-    if (uniqueDeck && uniqueDeck.length === 0) {
-        console.log("last round", uniqueDeck.length)
-        continueBtn.classList.add("hidden")
-    }
-
-    addFinishedClass(spotDealerCard, spotPlayerCard);
-
-    // gameJudge(btnVal);
-})
-
-continueBtn.addEventListener('click', () => {
-    console.log("continue");
-
-     startGame();
-})
-
-retryBtn.addEventListener('click', () => {
-    // page.classList.remove('page--result');
-    
-    clearGameState()
-    // changeDisplayPage(gamePage, resultPage);
-})
+// Test space
