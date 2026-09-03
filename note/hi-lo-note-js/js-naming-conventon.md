@@ -64,3 +64,81 @@ If a variable is confined to a specific scope, consider using names that indicat
 
 
 - https://tusharupadhyay0504.medium.com/12-best-practices-for-naming-variables-in-javascript-8f855b0582e9
+
+
+---
+
+
+The Solution: The 4 Prefixes#
+You can cover 99% of boolean naming scenarios with just four prefixes. If you stick to these, every boolean becomes a clear, grammatical question.
+
+1. IS: Identity and State Use is when describing what something is right now. It usually pairs with an adjective.
+
+Good: isActive, isDeleted, isEmpty.
+Bad: isAccess (Grammar mismatch. Use hasAccess).
+2. HAS: Containment and Features Use has when describing ownership or inclusion. It pairs with a noun.
+
+Good: hasAccess, hasChildren, hasValidationErrors.
+Bad: hasActive (Grammar mismatch. Use isActive).
+3. CAN: Capability Use can to check permissions or potential actions.
+
+Good: canEdit, canDelete, canRetry.
+Bad: canAdmin (Vague. Use isAdmin or canAdminister).
+4. SHOULD: Intent Use should for business rules or decisions the system needs to make. This separates “what we can do” from “what we want to do.”
+
+Good: shouldRetry, shouldCacheResponse.
+Bad: shouldUser (Incomplete. shouldCreateUser?).
+Stick to this list. When you mix them up—like writing isAccess or hasActive—you force the reader to stop and re-parse the sentence in their head. That friction is where bugs get introduced.
+
+Prefix	Domain	Function	Example
+IS	Identity / State	Describes what an object is currently.	isActive, isEmpty
+HAS	Containment	Describes ownership or feature presence.	hasChildren, hasAccess
+CAN	Capability	Describes permission or potential action.	canEdit, canRetry
+SHOULD	Intent / Logic	Describes a business rule recommendation.	shouldCache, shouldRetry
+
+
+
+- https://thatamazingprogrammer.com/posts/stop-naming-your-variables-flag-the-art-of-boolean-prefixes/
+
+
+---
+
+
+Use is or has (plus other auxiliary verbs like can or should) depending on the grammatical context of what the boolean variable represents.
+When to use is
+Use is when describing a state, identity, or condition (usually paired with an adjective or a past-participle verb)
+
+Examples: isActive, isOpen, isVisible, isDeleted, isLoadedMeaning: It tells you what something is or how it looks right now.
+
+When to use has
+Use has when describing ownership, containment, or features (usually paired with a noun).
+
+Examples: hasAccess, hasChildren, hasBillingAddress, hasErrorMeaning: It tells you what something contains or what it possesses.
+
+Other Helpful Prefixes
+can: Use for permissions or capabilities (e.g., canEdit, canDelete).
+should: Use for conditional logic or recommendations (e.g., shouldUpdate, shouldRetry).
+
+Quick Rules for Clean Code
+Keep it positive: Prefer isEnabled over negative names like isNotDisabled.
+Match the grammar: Make sure the prefix forms a natural phrase. (isActive works, but hasActive is grammatically incorrect).
+
+
+---
+
+### Function name
+
+The standard JavaScript naming convention for updating a specific item or piece of state is setItemState or setItem, placing the action verb first followed by the target entity. 
+
+Avoid setStateItem unless "StateItem" is treated as a single compound object noun.
+
+
+💡 Best Practice Guide
+lines
+Start functions with verbs: Functions perform actions, so they should generally begin with verbs like set, get, fetch, update, handle, or toggle.
+
+Avoid redundant words: If your context or module is already named itemManager.js, naming a function setItemState can become redundant. Prefer concise names like itemManager.set(value) or itemManager.update(value).
+
+State vs. Data: Use set...State predominantly in UI frameworks (like React) where you are interfacing directly with a state dispatcher. 
+
+For standard class properties or plain JavaScript objects, plain set... or native ES6 get/set accessors are preferred.

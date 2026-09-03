@@ -23,4 +23,4 @@ TODAY=$(date +%Y-%m-%d)
 # Copy and rename file
 cp "$SOURCE" "./${TODAY}_YWT.txt"
 
-echo "Copied to $DEST_DIR/$TODAY_YWT.txt"
+echo "Copied to $DEST_DIR/${TODAY}_YWT.txt"

@@ -2,6 +2,7 @@ Y.コードにコメントを付けた
 W.細かすぎるコメントになっている気がする
 T.簡潔なコメントになるようにしてみる
 
+
 Y.関数のreturnの必要性
 W.関数について何気なく使っていたことが分かった
 return必要：関数による実行の結果（戻り値）を取得し、他のところでその値を利用したいとき
@@ -10,10 +11,9 @@ T.returnが必要かどうか意識して使用する
 
 No return then function returns undefined
 
-
 Y.ゲーム初期化時、取得してきたDOMを無くす
 W.DOMはtextContent = ""　で無くすのが良いのか、他のやり方が良いのか扱いが不明ということが分かった。
-T..remove()かnullかreplaceChildren()かtextContentをしようして初期化する。
+T.remove()かnullかreplaceChildren()かtextContentをしようして初期化する。
 
 If you want to remove it completely (from DOM + memory),
 you need to clear the variable reference:

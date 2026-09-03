@@ -89,9 +89,9 @@ const countUpStreak = () => {
 /**
  * convertCardRank - 取得した数値をカードランクの強さに変換
  * @param {*} cardRank startGameで取り出した数値
- * - パスする変数: dealerRank、playerRank
- * - Rankの強さ: ２が最弱、１が最強
- * - 変換予想結果: cardRank 2 = 0, cardRank 1 = 12
+ * パスする変数: dealerRank、playerRank
+ * Rankの強さ: ２が最弱、１が最強
+ * 変換予想結果: cardRank 2 = 0, cardRank 1 = 12
  */
 const convertCardRank = (cardRank) => {
     const rank = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 1];
@@ -109,35 +109,14 @@ const resetRoundHeadingClass = () => {
     }
 }
 
-const updateRoundWin = () => {
-    resetRoundHeadingClass();
-    roundHeadingEl.textContent = "win";
-    countUpStreak();
-}
-
-const updateRoundDraw = () => {
-    resetRoundHeadingClass();
-    roundHeadingEl.textContent = "Draw";
-    roundHeadingEl.classList.add("text-pale");
-    countUpStreak();
-}
-
-const updateRoundLose = () => {
-    resetRoundHeadingClass();
-    roundHeadingEl.textContent = "Lose";
-    roundHeadingEl.classList.add("text-red");
-    continueBtn.classList.add("hidden");
-}
-
 /**
  * gameJudge - ゲーム勝敗を判定
  * @param {*} playerSelectedButton highかlowボタンの値を取得
- * 
  * 流れ
  * - 1.ボタンからHighかlowの二択を判定
  * - 2.プレイヤーの予想を判定
  * - 3.勝敗によりroundHeadingElの文字を変え、classを付与 (resetRoundHeadingClass()の処理後)
- * - - 勝敗判定後 win or draw => count up, lose => no count up (game over), "続ける"ボタンは非表示
+ * - - 勝敗判定後 win or draw = count up, lose = no count up (game over), "続ける"ボタンは非表示
  */
 const gameJudge = (playerSelectedButton) => {
     
@@ -146,7 +125,6 @@ const gameJudge = (playerSelectedButton) => {
 
     // Test rank
     currentPlayerRank = 0;
-    currentDealerRank = 2;
 
     // Test button selection
     // let playerSelectedButton = "low".toLowerCase();
@@ -159,44 +137,43 @@ const gameJudge = (playerSelectedButton) => {
         // Check player's prediction
         if (currentPlayerRank < currentDealerRank) {
 
-            // resetRoundHeadingClass();
-            // roundHeadingEl.textContent = "win";
-            // countUpStreak();
-            updateRoundWin();
+            resetRoundHeadingClass();
+            roundHeadingEl.textContent = "win";
+            countUpStreak();
         } else if (currentPlayerRank === currentDealerRank) {
 
-            updateRoundDraw();
+            resetRoundHeadingClass();
+            roundHeadingEl.textContent = "Draw";
+            roundHeadingEl.classList.add("text-pale");
+            countUpStreak();
         } else {
 
-            // resetRoundHeadingClass();
-            // roundHeadingEl.textContent = "Lose";
-            // roundHeadingEl.classList.add("text-red");
-            // continueBtn.classList.add("hidden");
-            updateRoundLose();
+            resetRoundHeadingClass();
+            roundHeadingEl.textContent = "Lose";
+            roundHeadingEl.classList.add("text-red");
+            continueBtn.classList.add("hidden");
+            console.log("game over");
         }
     } else if (playerSelectedButton === "high") {
         
         // Check player's prediction
         if (currentPlayerRank > currentDealerRank) {
 
-            // resetRoundHeadingClass();
-            // roundHeadingEl.textContent = "win";
-            // countUpStreak();
-            updateRoundWin();
+            resetRoundHeadingClass();
+            roundHeadingEl.textContent = "win";
+            countUpStreak();
         } else if (currentPlayerRank === currentDealerRank) {
 
-            // resetRoundHeadingClass();
-            // roundHeadingEl.textContent = "Draw";
-            // roundHeadingEl.classList.add("text-pale");
-            // countUpStreak();
-            updateRoundDraw();
+            resetRoundHeadingClass();
+            roundHeadingEl.textContent = "Draw";
+            roundHeadingEl.classList.add("text-pale");
+            countUpStreak();
         } else {
 
-            // resetRoundHeadingClass();
-            // roundHeadingEl.textContent = "Lose";
-            // roundHeadingEl.classList.add("text-red");
-            // continueBtn.classList.add("hidden");
-            updateRoundLose();
+            resetRoundHeadingClass();
+            roundHeadingEl.textContent = "Lose";
+            roundHeadingEl.classList.add("text-red");
+            continueBtn.classList.add("hidden");
         }
     }
 }
@@ -250,7 +227,7 @@ const getCardRank = () => {
  * startGame - カードをランダムで表示、ランクの抜き取り、場のカードの表示
  * 
  * 流れ
- * - 1.storedCardDeckの有無を確認し、無いければ処理しない
+ * - 1.storedCardDeckの有無を確認し、無ければ処理しない
  * - 2.indexをランダムに取得 (起動時毎回)
  * - 3.splice()でカードを一枚(ランダムで)取り出し
  * - 4.取り出したカードからsrcを取得
@@ -295,11 +272,6 @@ const startGame = () => {
 
 // Last round no need to add class
 const addFinishedClass = (dealerCard, playerCard) => {
-    console.log(dealerCard, playerCard)
-    if (!dealerCard || !playerCard) {
-        console.log("no card")
-        return
-    }
 
     // 最終ラウンドまで処理 (storedCardDeck = 0 はゲームリセットの為、処理不要)
     if (storedCardDeck.length > 1) {

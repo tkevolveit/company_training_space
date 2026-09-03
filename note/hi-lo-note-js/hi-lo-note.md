@@ -14,7 +14,7 @@ sectionよりarticleを使用する。~~
 
 
 ---
-
+s
 
 Start Button - click -> Display Game Screen + add hidden class to Title screen
 
@@ -750,16 +750,69 @@ input.addEventListener('input', (e) => document.querySelector('#preview').innerT
 ```
 
 
+### JavaScript array returns object
+
+JavaScript doesn't have array type values:
+```js
+"undefined"
+"boolean"
+"number"
+"string"
+"bigint"
+"symbol"
+"function"
+"object"
+```
+
+```js
+typeof []
+// "object"
+```
+In the ECMAScript spec, arrays are called “exotic objects” — meaning they’re objects with special internal logic.
+
+#### Backward compatibility
+
+JavaScript has one golden rule:
+> Don’t break the web.
+If typeof [] suddenly started returning "array", it would break millions of websites relying on "object".
+So it stays.
+
+We can check array, we use:
+```js
+Array.isArray([])
+```
+
+Conculusion
+JavaScript array is fine because if return array then it break the web.
+
+JavaScriptの配列は、内部的にはオブジェクトの一種です。複数のデータを管理するには、角括弧 []（配列リテラル）を使って初期化するのが最も安全で一般的です。変数の宣言には、再代入を防げる const を使うのがおすすめです。
+
+- https://dev.to/kathirvel-s/why-typeof-returns-object-in-javascript-59n7
 
 
+---
+
+What should the initialized empty varialble type is best?
+null or udefined or 
+- null は、未割り当てのオブジェクトを表すものです
+null は「値が存在しないことを明示的に示す」ために、開発者によって代入される値である。
+これは、将来的に値が設定される予定だが、現時点では「空」であることを示す際などに用いられる。
 
 
+undefined -- 初期化されてないかもしれない; 特定のデータ型に関連付けられていない。
+null -- オブジェクトがない、オブジェクトが期待される場所。
+NaN -- 数字がない、数字が期待される場所。
+false -- 単に真ではない、他の意味はない。
 
+まとめ：使い分けの指針
+値	使うべき場面
+""	入力欄の初期値、form状態
+null	データ未取得、意図的に空を示したい時
+undefined	オプショナルな設計、初期化されていない値
+SPAにおけるフォーム処理では、基本は "" を使い、データの状態管理には null、型的に省略可能な箇所には undefined を使う、というのが実務的な判断です。
 
-
-
-
-
+- https://zenn.dev/yuki0401/articles/b70a8702e231eb
+- https://www.reddit.com/r/learnjavascript/comments/1433r0f/null_or_undefined_what_should_i_use_if_i_want_to/?tl=ja
 ---
 Read
 JavaScript、乱数の範囲や重複を指定〜Math.random使い方
@@ -767,3 +820,6 @@ JavaScript、乱数の範囲や重複を指定〜Math.random使い方
 
 Fisher–Yatesシャッフルのやさしい解説
 - Fisher–Yates shuffle
+
+JavaScript v8 engine
+- https://zenn.dev/estra/books/js-async-promise-chain-event-loop/viewer/e-epasync-v8-engine
