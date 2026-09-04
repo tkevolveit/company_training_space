@@ -48,3 +48,62 @@ JSDocの種類	コメントの意味
 
 
 - https://qiita.com/tanimoto-hikari/items/29f829d21d0cd6be91c8
+
+
+---
+
+JavaScriptのソースコードコメント（JSDoc）における @param タグには、関数の引数（パラメータ）の「型」「引数名」「説明」を記述します。（※正しくは @params ではなく単数形の @param と記述します）
+📝 基本的な書き方と構文基本的な構文は以下の通りです。
+javascript
+```js
+/**
+ * @param {型} 引数名 - 引数の説明
+ */
+コードは注意してご使用ください。具体例javascript/**
+ * ユーザーの年齢を計算する
+ * 
+ * @param {string} birthDate - 生年月日（YYYY-MM-DD形式）
+ * @param {boolean} [isIncludeToday=false] - 計算に当日を含めるかどうか
+ * @returns {number} 計算された年齢
+ */
+function calculateAge(birthDate, isIncludeToday = false) {
+    // 処理...
+}
+```
+
+🛠️ パターン別の記述方法
+1. 省略可能な引数（オプショナル）引数名を []（角括弧）で囲むと、省略可能な引数であることを示せます。= を使ってデフォルト値を書くこともできます。javascript
+```js
+/**
+ * @param {string} [userName] - ユーザー名（省略可能）
+ * @param {number} [timeout=3000] - タイムアウト時間（デフォルト: 3000ms）
+ */
+```
+
+2. 複数の型を受け入れる場合（Union型）|（パイプ）で区切ることで、複数の型を指定できます。
+```js
+/**
+ * @param {string|number} userId - ユーザーID（文字列または数値）
+ */
+```
+
+3. オブジェクトのプロパティを細かく指定する場合オブジェクトの構造や、その中の特定のプロパティについて説明したい場合は、ドット区切りで書くか @typedef を使って型を定義します。
+```js
+/**
+ * @param {Object} options - オプション設定
+ * @param {string} options.theme - テーマ名（'dark' または 'light'）
+ * @param {boolean} [options.autoSave] - 自動保存の有無
+ */
+```
+
+4. コールバック関数を指定する場合関数を受け取る引数の場合、引数や戻り値の型も合わせて定義できます。
+```js
+/**
+ * @param {function(number, string): void} callback - 処理完了時に呼ばれるコールバック
+ */
+```
+
+✨ @param を書くメリット
+エディターの補完・ホバー表示の強化：VS Codeなどのエディターで関数にカーソルを合わせた際、引数の型や説明がポップアップ（ツールチップ）で表示されるようになります。
+簡易的な型チェック：JavaScriptであっても、エディター上での型ミスの検知や、// @ts-check を有効にした際の静的解析に役立ちます。
+ドキュメントの自動生成：JSDocなどのツールを使って、ソースコードから綺麗なHTML形式のAPI仕様書を自動生成できます

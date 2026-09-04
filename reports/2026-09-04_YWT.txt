@@ -1,0 +1,16 @@
+Y.JSDocを使ってコメントの説明を書く
+W.@paramnなど何を書くのか、いまいち解っていないことが分かった
+T.JSDocの使い方を調べて、コメントを分かりやすく書けるようにする
+
+
+
+---
+
+Todo
+- [ ] Code Review Code
+    - [ ] Refactoring Code
+    - [ ] Refactoring comment
+- [ ] Test Code
+- [ ] Test Play
+    - check high and low button exactly works
+        - win- get point, win heading, 

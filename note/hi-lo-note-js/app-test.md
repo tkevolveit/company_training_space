@@ -34,18 +34,26 @@ Make sure each feature correctly working
   - Result - Click retry -> Game
 
  - [ ] Streak Count
-  - Is win or draw - yes -> count up
+  - Is win or draw - yes -> count up (streak count: game page, result page)
   - Is lose - no -> Game over
   - Is 26 streak - yes -> STOP COUNT (NO MORE CARDS, CANNOT PLAY)
 
- - [ ] User selection
+ - [ ] User Button selection
     - Is user select "high" - yes -> Display "high" on Round page
     - Is user select "low" - yes -> Display "low" on Round page
  
 
-- [ ] Display Drawn Card
+- [ ] Display Deal Spot Card
  - Is match Drawn Dealer Card on Game page and Round Page? - if Yes -> OK 
  - Is match Drawn Player Card on Round Page? - if Yes -> OK 
+
+Cards of Deck Card List Background
+- [ ] Add orange background on dealer card
+ - Is added dealer class on current dealer card on this turn? - if yes -> -> OK 
+
+- [ ] Add gray background on finished round cards
+ - Is added used class on current player card on this turn? - if yes -> OK 
+ - Is added finished class on both player and dealer card on this turn end? - if yes -> -> OK 
 
 - [ ] Extract both cards rank from image src
     - Is correct target number 
@@ -70,7 +78,7 @@ Make sure each feature correctly working
 
  
 - [ ] Game Judge Heading
-  - Is draw? - yes -> Display "Win" on Round page
+  - Is card draw? - yes -> Display "Win" on Round page
   - Is the user prediction correct? - yes -> Display "Win" on Round page
   - Is the user prediction correct? - No -> on Round page:
     - Display "Lose"  
@@ -82,22 +90,54 @@ Make sure each feature correctly working
         - dealer
         - player
 
-
 - [ ] Last Round (NO more card state)
     - Add only dealer class to dealer's card
     - Navigate to the Round page
     - ON the Round page:
         - NO display continue on the Round page
+    - If no card, then no shuffle, no count up. no add extra classes, Image automatically stop changing(since no card means no src anymore)
 
 
 - [ ] Reset Game Statement
-     - streakCount = 0 
-     - roundHeading = 'Enjoy!🏋
-     - highOrLowEl = '🍋🍇🍐🥑🍔🍜'
-     - div.card-wrapper = only card-wrapper class
-     - continueBtn = only btn btn--continue classes
-     - div.page = only page class
-     - uniqueDeck = 52 length
+    - streakCount = 0 
+    - roundHeadingEl = 'Enjoy!🏋 <- Any text ok user never see this.
+    - highOrLowEl = '🍋🍇🍐🥑🍔🍜' <- Any text ok user never see this.
+    - div.card-wrapper = default .card-wrapper class
+    - roundHeadingEl = default .font-system class
+    - continueBtn = default .btn .btn--continue classes
+    - div.page = default .page class
+    - dealerRank = 0
+    - playerRank = 0
+    - spotDealerCard = null (clean memory)
+    - spotPlayerCard = null (clean memory)
+    - storedCardDeck = originalDeckCardList (52 length)
+
+- [ ] Trigger Start game
+    Start Game
+    - Is start game by start button
+    - Is start game by continue button
+    - Is start game by retry button
+
+- [ ] Trigger Reset game
+    Reset Game
+    - Is reset game by start button
+    - Is reset game by home icon button
+    - Is reset game by title button
+    - Is reset game by retry button
 
 
-Total 11
+Final Check
+- [ ] Test Play
+    - Normal Play
+        - Is correct navigate lose
+        - Is correct naviagte win
+        - Is correct navigate draw
+    - Check All wins
+
+Total 13
+
+
+
+Feature add
+- Avoid double click to count up
+    - isClick to detect click high or low button to stop continueous count up.

@@ -28,7 +28,7 @@ const playerCardImgEl = document.querySelector('.player-card');
 const originalDeckCardList = document.querySelectorAll('.card-wrapper');
 let storedCardDeck = Array.from(originalDeckCardList);  // splice()で使用する為、NodeListから配列へ変換
 
-// 内部処理
+// Internal variables
 let spotDealerCard = {};  // Card Data取得用で作成、取得後はobjectのため {} を代入
 let spotPlayerCard = {};  // Card Data取得用で作成、取得後はobjectのため {} を代入
 
@@ -49,12 +49,12 @@ const isEmptyCards = () => storedCardDeck && storedCardDeck.length === 0;  // st
 const changeDisplayPage = (showEl, hideEl) => {
     // クリック後、classの付けけ外し
     showEl.classList.remove('hidden');
-    hideEl.classList.add('hidden');
+    hideEl.classList.add('hidden')
 }
 
 /**
  * changeHighOrLowSpanContent - プレイヤーが選択したボタンの文字を表示
- * - 文字の表示結果は"HIGH"か"LOW"が表示される
+ * - 文字の表示結果は'HIGH'か'LOW'が表示される
  * @param {object} selectedButton - highBtnかlowBtnを取得
  */
 const changeHighOrLowSpanContent = (selectedButton) => {
@@ -89,6 +89,7 @@ const countUpStreak = () => {
  */
 const convertCardRank = (cardRank) => {
     const rank = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 1];
+    console.log("raw card rank", cardRank)
 
     // rankにアクセスしてcardRankの値をindexに更新 
     let convertedCardRank = rank.indexOf(cardRank);
@@ -105,22 +106,22 @@ const resetRoundHeadingClass = () => {
 
 const updateRoundWin = () => {
     resetRoundHeadingClass();
-    roundHeadingEl.textContent = 'win';
+    roundHeadingEl.textContent = "win";
     countUpStreak();
 }
 
 const updateRoundDraw = () => {
     resetRoundHeadingClass();
-    roundHeadingEl.textContent = 'Draw';
-    roundHeadingEl.classList.add('text-pale');
+    roundHeadingEl.textContent = "Draw";
+    roundHeadingEl.classList.add("text-pale");
     countUpStreak();
 }
 
 const updateRoundLose = () => {
     resetRoundHeadingClass();
-    roundHeadingEl.textContent = 'Lose';
-    roundHeadingEl.classList.add('text-red');
-    continueBtn.classList.add('hidden');
+    roundHeadingEl.textContent = "Lose";
+    roundHeadingEl.classList.add("text-red");
+    continueBtn.classList.add("hidden");
 }
 
 /**
@@ -137,11 +138,23 @@ const updateRoundLose = () => {
  */
 const gameJudge = (playerSelectedButton) => {
     
-    let currentPlayerRank = convertCardRank(playerRank);
-    let currentDealerRank = convertCardRank(dealerRank);
+    let currentPlayerRank = convertCardRank(playerRank)
+    let currentDealerRank = convertCardRank(dealerRank)
+
+    // Test rank
+    // currentPlayerRank = 0;
+    // currentDealerRank = 2;
+    // Check rank
+    // console.log("pRank", currentPlayerRank);
+    // console.log("dRank", currentDealerRank);
+
+    // Test button selection
+    // let playerSelectedButton = "low".toLowerCase();
+    // let playerSelectedButton = playerSelectedButton;
     
-    // ボタン判定、rank判定
-    if (playerSelectedButton === 'low') {
+    // 1.playerSelectedButton
+    // 2.player prediction
+    if (playerSelectedButton === "low") {
         
         // 判定例）
         // currentPlayerRank = 0 (spade 2)
@@ -157,7 +170,7 @@ const gameJudge = (playerSelectedButton) => {
 
             updateRoundLose();
         }
-    } else if (playerSelectedButton === 'high') {
+    } else if (playerSelectedButton === "high") {
         
         // 判定例）
         // currentPlayerRank = 12 (spade A)
@@ -188,7 +201,7 @@ const shuffleIndex = () => {
  * - 1.shuffleで取得したカード要素からsrcを取得
  * - 2.src更新で画面と値をリンクさせる
  * - 3.カード画像を反映
- * @param {object} dealerCard - dealerCard object (div.card-wrapper.dealer)
+ * @param {object} dealerCard - dealerCard object (div.card-wrapper.delaer)
  * @param {object} playerCard - playerCard object (div.card-wrapper.used)
  */
 const getCardImgSrc = (dealerCard, playerCard) => {
@@ -223,8 +236,6 @@ const getCardRank = () => {
     playerRank = playerCardRank;
 }
 
-const isDebug = false;  // Test play用に作成
-
 /**
  * startGame - カードをランダムで表示、ランクの抜き取り、場のカードの表示
  * 
@@ -245,33 +256,33 @@ const isDebug = false;  // Test play用に作成
  */
 const startGame = () => {
     if (storedCardDeck && storedCardDeck.length === 0)  {
-        console.log('No more card!! GAME OVER')
+        console.log("No more card!! GAME OVER")
         // changeDisplayPage(resultPage, gamePage);
         return;
     }
+    console.log("index", shuffleIndex())
 
     const [dealerCard] = storedCardDeck.splice(shuffleIndex(), 1);
     const [playerCard] = storedCardDeck.splice(shuffleIndex(), 1);
+    console.log("delaer", dealerCard, "player", playerCard)
 
-    if (isDebug) {
-        console.log('dealerCard', dealerCard)
-        console.log('playerCard', playerCard)
-    }
-
-    getCardImgSrc(dealerCard, playerCard);
+    getCardImgSrc(dealerCard, playerCard)
     getCardRank();
 
     if (storedCardDeck.length >= 0) {
-        dealerCard.classList.add('dealer');
+        dealerCard.classList.add('dealer')
     }
     
     if (storedCardDeck.length > 1) {
-        playerCard.classList.add('used');
+        playerCard.classList.add('used')
     }
 
-    // Update
+    // Update global variables
     spotDealerCard = dealerCard;
     spotPlayerCard = playerCard;
+
+    console.log("Remaining Cards: ", storedCardDeck.length)
+    // console.log("Has Not cards?", isEmptyCards())
 }
 
 /**
@@ -281,8 +292,8 @@ const startGame = () => {
  */
 const addFinishedClass = (dealerCard, playerCard) => {
     if (!dealerCard || !playerCard) {
-        console.log('no card')
-        return;
+        console.log("no card")
+        return
     }
 
     // 最終ラウンドまで処理 (storedCardDeck = 0 はゲームリセットの為、処理不要)
@@ -298,10 +309,10 @@ const addFinishedClass = (dealerCard, playerCard) => {
 /**
  * Reset Game Statement
  * 
- * 初期化時 DEFAULT:
+ * DEFAULT STATEMENT:
  * - streakCount = 0 
- * - roundHeadingEl = "Enjoy!🏋 "
- * - highOrLowEl = "🍋🍇🍐🥑🍔🍜" 
+ * - roundHeadingEl = 'Enjoy!🏋 <- Any text ok user never see this.
+ * - highOrLowEl = '🍋🍇🍐🥑🍔🍜' <- Any text ok user never see this.
  * - div.card-wrapper = default .card-wrapper class
  * - roundHeadingEl = default .font-system class
  * - continueBtn = default .btn .btn--continue classes
@@ -311,6 +322,8 @@ const addFinishedClass = (dealerCard, playerCard) => {
  * - spotDealerCard = null (clean memory)
  * - spotPlayerCard = null (clean memory)
  * - storedCardDeck = originalDeckCardList (52 length)
+ *     - NOTE: storedCardDeck needs to be reassign originalDeckCardList as array since it has destroy the element by splice(). 
+ *             Restore is important for retry the game.
  */
 const clearGameState = () => {
     streakCountList.forEach(count => count.textContent = 0);
@@ -318,17 +331,18 @@ const clearGameState = () => {
     highOrLowEl.textContent = '🍋🍇🍐🥑🍔🍜';
 
     originalDeckCardList.forEach(cardEl => {
-        cardEl.classList.remove('used');
-        cardEl.classList.remove('dealer');
-        cardEl.classList.remove('finished');
+        cardEl.classList.remove("used")
+        cardEl.classList.remove("dealer")
+        cardEl.classList.remove("finished")
     })
 
     resetRoundHeadingClass();
 
-    continueBtn.classList.remove('hidden');
+    continueBtn.classList.remove("hidden")
 
     if (page.classList.contains('page--result')) {
         page.classList.remove('page--result');
+        console.log("page--result is removed")
     }
 
     dealerRank = 0;
@@ -339,8 +353,8 @@ const clearGameState = () => {
 
     storedCardDeck = Array.from(originalDeckCardList);
 
-    console.log('RELOAD...Initial Deck: ', storedCardDeck.length)
-    console.log('Game is cleared')
+    console.log("RELOAD...Initial Deck: ", storedCardDeck.length)
+    console.log("Game is cleared")
 }
 
 
@@ -367,33 +381,37 @@ homeBtn.addEventListener('click', () => {
 highBtn.addEventListener('click', (selectedButton) => {
     const playerSelectedButton = selectedButton.target.value.toLowerCase();
 
-    isEmptyCards() ? continueBtn.classList.add('hidden') : '';
+    isEmptyCards() ? continueBtn.classList.add("hidden") : "";
 
-    changeHighOrLowSpanContent(selectedButton);
+    changeHighOrLowSpanContent(selectedButton)
     addFinishedClass(spotDealerCard, spotPlayerCard);
     gameJudge(playerSelectedButton);
+
     changeDisplayPage(roundPage, gamePage);
 })
 
 lowBtn.addEventListener('click', (selectedButton) => {
     const playerSelectedButton = selectedButton.target.value.toLowerCase();
     
-    isEmptyCards() ? continueBtn.classList.add('hidden') : '';
+    isEmptyCards() ? continueBtn.classList.add("hidden") : "";
 
-    changeHighOrLowSpanContent(selectedButton);
+    changeHighOrLowSpanContent(selectedButton)
     addFinishedClass(spotDealerCard, spotPlayerCard);
     gameJudge(playerSelectedButton);
+
     changeDisplayPage(roundPage, gamePage);
 })
 
 continueBtn.addEventListener('click', () => {
+    console.log("continue");
+
     startGame();
+
     changeDisplayPage(gamePage, roundPage);
 })
 
 resultBtn.addEventListener('click', () => {
     page.classList.add('page--result');
-
     changeDisplayPage(resultPage, roundPage);
 })
 
@@ -404,12 +422,20 @@ retryBtn.addEventListener('click', () => {
 })
 
 titleBtn.addEventListener('click', () => {
+
     clearGameState();
+
     changeDisplayPage(titlePage, resultPage);
 })
 
 
-// 読み込み時に初期化
+// 読み込み時に初期化して 'hidden' クラスを付与
 window.addEventListener('DOMContentLoaded', () => {
     clearGameState();
+
+    rulesPage.classList.add('hidden');
+    gamePage.classList.add('hidden');
+    roundPage.classList.add('hidden');
+    resultPage.classList.add('hidden');
+    // titlePage.classList.add('hidden');
 })
