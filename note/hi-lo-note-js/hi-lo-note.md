@@ -352,6 +352,13 @@ splice()と分割代入: splice() は取り出した要素を「配列」で返�
 重複の防止: 1回目に取り出した要素を配列から削除しているため、同じ要素が2回選ばれることはありません
 
 
+Summary Checklist
+Original Array: Directly modified.
+Return Value: An array of the deleted items (or an empty array if nothing was deleted).
+
+splice() vs slice(): 
+Do not confuse the two. The MDN Documentation for Array.prototype.splice() states that splice() modifies the original array, whereas slice() only copies a portion of an array without changing the original
+
 
 ---
 

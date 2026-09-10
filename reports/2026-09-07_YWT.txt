@@ -1,0 +1,24 @@
+Y. Javadocから使いたいメソッド（文字列の一部を返すメソッド）の探す
+W. Javadocは情報量が多いので目的のクラスやメソッドを
+検索するのが難しいと分かった。
+T. Javadocの使用例を調べて使い方になれるようにする
+
+
+
+Y. LocalDateの値(2021-09-14)をformatted()で
+"2021年9月14日"に変換しようとしてエラーとなった
+W.Localdateは時刻やタイムゾーンを持たないので、時間を出すときは
+DateTimeFormatter.ofPattern("yyyy年M分d日")
+を使う
+T.メソッドを使うときは型を意識する
+
+%M は時刻の「分」を指すため、LocalDate には使えません。
+
+
+アウトプットについて
+https://qiita.com/Sicut_study/items/40fd5aac278b001a2fee
+
+---
+
+Todo
+- [ ] Check Reviewed Code

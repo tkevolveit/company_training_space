@@ -14,3 +14,11 @@ Todo
 - [ ] Test Play
     - check high and low button exactly works
         - win- get point, win heading, 
+
+
+
+ハイアンドローJavaScript作成の初回完成しました。
+コードレビューをお願いします。
+
+
+Java学習（プロになるJava）ch1始めます。

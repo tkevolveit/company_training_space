@@ -1,0 +1,20 @@
+Y. compareTo() を使って文字列の比較をした
+W. "test".compareTo("TEST")で比較し、戻りで32が返ってきたが、
+何を比較しているのか、わからない事が分かった。
+T. 異なる文字の比較はそれぞれの文字に割り当てられているUnicodeコードポイントという数値で比較しているようなので、
+Unicodeを確認してみる。
+
+
+T = U+0054, 84
+t = U+0074, 116
+
+U+表記
+コードポイント（10進数）<- こっちで比較
+
+
+- https://tools.m-bsys.com/ex/unicode_table.php
+
+---
+
+Todo
+- [ ] Check Reviewed Code

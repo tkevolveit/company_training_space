@@ -1,0 +1,48 @@
+Y.highとlowのボタン処理をまとめる
+W.最初条件を付けてhighかlowを振り分けようとしていたが、
+親要素から子要素を検出できることが調べて分かった。
+（こういった子要素ではなく共通の親要素にイベントリスナーを1つだけ登録し、
+子要素で発生したイベントを処理する仕組みをイベント委譲(Event delegation)
+というらしい）
+T.イベントを処理する仕組みを意識して実装してみる
+
+
+アルゴリズム:
+
+コンテナに単一のハンドラを置きます
+ハンドラの中で – ソース要素 event.target をチェックします
+イベントが関心のある要素の中で起きていた場合、イベントを処理します。
+
+Y.別のJavaScriptのファイルをmain.jsのファイルで使うためにimportしたが、
+GET ~  net::ERR_ABORTED 404 (Not Found)となり使えない
+W. 拡張子が抜けていたのでエラーが発生したことが分かった。
+T. ファイルのimportとexportのやり方を調べて確認する。
+
+GET http://127.0.0.1:5500/submit/20260904_%E3%83%8F%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AD%E3%83%BCJavaScript%E4%BD%9C%E6%88%90_%E5%88%9D%E5%9B%9E%E5%AE%8C%E6%88%90_%E6%B2%B3%E6%9D%91/high-and-low/js/cardDeckArrObj net::ERR_ABORTED 404 (Not Found)
+
+
+---
+
+Todo
+- [ ] Refactor high or low button function selector
+- [ ] Use HTML for round heading instead manage JavaScript
+
+ 
+- [ ] Create object
+- [ ] Add id for all card image
+    - e.g., spade-1 
+- [ ] Check output
+- [ ] Find js to DOM
+- 
+
+
+
+Line 28
+```js
+const originalDeckCardList = Array.from(document.querySelectorAll('.card-wrapper'));
+let storedCardDeck = Array.from(originalDeckCardList);  // splice()で使用する為、NodeListから配列へ変換
+```
+
+- originalDeckCardList should be assign the deck object instead of HTMLElement
+
+card = document.getElementById("${card-id}");

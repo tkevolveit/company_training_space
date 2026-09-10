@@ -1,0 +1,16 @@
+Y.ソースコードレビュー
+W.カードランクの取得で別の方法があることが分かった。
+T.Mapを使ってカードランクを取得してみる
+
+
+
+
+---
+
+Todo
+- [ ] Create object
+- [ ] Add id for all card image
+    - e.g., spade-1 
+- [ ] Check output
+- [ ] Find js to DOM
+- 
