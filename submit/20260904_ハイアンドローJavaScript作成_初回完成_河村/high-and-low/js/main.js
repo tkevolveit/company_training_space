@@ -1,4 +1,5 @@
-import cardArrObj from './cardDeckArrObj.js';
+import createInitialDeck from './createInitialDeck.js';
+console.log("Original deck", createInitialDeck())
 
 // Pages
 const titlePage = document.querySelector('.title-page');
@@ -28,25 +29,24 @@ const dealerCardImgList = document.querySelectorAll('.dealer-card');
 const playerCardImgEl = document.querySelector('.player-card');
 const highLowButtonWrapperEl = document.getElementById("high-low-button-wrapper");
 
-// FIX: Assign the deck object instead HTMLElement (document.querySelectorAll('.card-wrapper');)
-// card is goind to be getElementById(${card-id})
 const originalDeckCardList = document.querySelectorAll('.card-wrapper');
-let storedCardDeck = Array.from(originalDeckCardList);  // splice()で使用する為、NodeListから配列へ変換
-let storedCardArrObj = cardArrObj;
-console.log(storedCardArrObj)
 
 // 内部処理
+let storedCardDeckArrObj = null;
+let globalAvailableCards = 0;
+
 let globalDealerCard = null;  // Card Data取得用で作成、取得後はobjectのため {} を代入
 let globalPlayerCard = null;  // Card Data取得用で作成、取得後はobjectのため {} を代入
 
+// 使用場所: gameJudge
 let globalDealerCardRank = 0; // Card Rank取得用で作成
 let globalPlayerCardRank = 0; // Card Rank取得用で作成
 
-let globalDealerCardImgSrc = null; // Image src取得用で作成
-let globalPlayerCardImgSrc = null; // Image src取得用で作成
+// let globalDealerCardImgSrc = null; // Image src取得用で作成
+// let globalPlayerCardImgSrc = null; // Image src取得用で作成
 
 const isEmptyCards = () => {
-    return storedCardArrObj && storedCardArrObj.length === 0;  // storedCardDeckの確認用で作成
+    return globalAvailableCards && globalAvailableCards.length === 0;  // storedCardDeckの確認用で作成
 }
 
 /**
@@ -86,6 +86,10 @@ const countUpStreak = () => {
  */
 const convertCardRank = (cardRank) => {
     const rank = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 1];
+
+    console.log("Card rank", cardRank)
+
+    // FIX: Use map to get the rank
 
     // rankにアクセスしてcardRankの値をindexに更新 
     let convertedCardRank = rank.indexOf(cardRank);
@@ -169,9 +173,11 @@ const gameJudge = (playerSelectedButtonVal) => {
     }
 }
 
+
 const shuffleIndex = () => {
-    // splice()でstoredCardDeckから要素を削除するため、storedCardDeck.lengthは自動で調整される
-    return Math.floor(Math.random() * storedCardArrObj.length);
+    // splice()でstoredCardDeckから要素を削除するため、
+    // globalAvailableCards(storedCardDeck.length)は自動で調整される
+    return Math.floor(Math.random() * globalAvailableCards);
 }
 
 /**
@@ -179,22 +185,17 @@ const shuffleIndex = () => {
  * 
  * 流れ
  * - 1.shuffleで取得したカード要素からsrcを取得
- * - 2.src更新で画面と値をリンクさせる
- * - 3.カード画像を反映
- * @param {object} dealerCard - dealerCard object (div.card-wrapper.dealer)
- * @param {object} playerCard - playerCard object (div.card-wrapper.used)
+ * - 2.取得したsrcでカード画像を反映
+ * @param {object} drawnDealerCard - drawnDealerCard object
+ * @param {object} drawnPlayerCard - drawnPlayerCard object
  */
-const updateDealerGameCardAndDealerPlayerRoundCards = (dealerCard, playerCard) => {
-
-    // Update image src
-    globalDealerCardImgSrc = dealerCard.children[0].src;
-    globalPlayerCardImgSrc = playerCard.children[0].src;
+const updateDealerGameCardAndDealerPlayerRoundCards = (drawnDealerCard, drawnPlayerCard) => {
 
     // Update Card image
     dealerCardImgList.forEach(img  => {
-        img.src = globalDealerCardImgSrc;
+        img.src = drawnDealerCard.src;
     })
-    playerCardImgEl.src = globalPlayerCardImgSrc;
+    playerCardImgEl.src = drawnPlayerCard.src;
 }
 
 /**
@@ -202,19 +203,19 @@ const updateDealerGameCardAndDealerPlayerRoundCards = (dealerCard, playerCard) =
  * - 例）http://127.0.0.1:5500/high-and-low/src/images/club/club2.png
  *      - 上記club2の「2」を抜出す
  */
-const updateGlobalCardRanks = () => {
+// const updateGlobalCardRanks = (drawnDealerCard, drawnPlayerCard) => {
 
-    // (\d+) = 数字だけ全検索
-    // (?=.png) = .pngの前の位置（数字）を指定
-    //   ・(?=.png)の代わりにこちらでも可 => (?!.*\d) = 直前の数字以外はマッチさせない
-    // 参照：https://zenn.dev/usamik26/articles/regex-lookahead
-    let dealerCardRank = parseInt(globalDealerCardImgSrc.match(/(\d+)(?=.png)/g));
-    let playerCardRank = parseInt(globalPlayerCardImgSrc.match(/(\d+)(?=.png)/g));
+//     // (\d+) = 数字だけ全検索
+//     // (?=.png) = .pngの前の位置（数字）を指定
+//     //   ・(?=.png)の代わりにこちらでも可 => (?!.*\d) = 直前の数字以外はマッチさせない
+//     // 参照：https://zenn.dev/usamik26/articles/regex-lookahead
+//     let dealerCardRank = parseInt(drawnDealerCard.match(/(\d+)(?=.png)/g));
+//     let playerCardRank = parseInt(drawnPlayerCard.match(/(\d+)(?=.png)/g));
 
-    // Update
-    globalDealerCardRank = dealerCardRank;
-    globalPlayerCardRank = playerCardRank;
-}
+//     // Update
+//     globalDealerCardRank = dealerCardRank;
+//     globalPlayerCardRank = playerCardRank;
+// }
 
 const isDebug = false;  // Test play用に作成
 
@@ -231,66 +232,101 @@ const isDebug = false;  // Test play用に作成
  * - 6.取り出したカードのsrcからrank(数字)の抜出し (club2 => 2)
  * - 7.抜出したrank(数字)をdealerRank、playerRankへ代入
  * - 8.取り出したカードへclassを付与
- *      - dealerCard -> "dealer" class (場に出ているカードの目印として付与)
- *      - playerCard -> "drawn" (usedにするために付与)
- * - 9.dealerCardに "dealer" classを付与 
- * - 10.playerCardに "used" classを付与(最後のラウンドは不要(残りカード2枚時))
+ *      - drawnDealerCard -> "dealer" class (場に出ているカードの目印として付与)
+ *      - drawnPlayerCard -> "drawn" (usedにするために付与)
+ * - 9.drawnDealerCardに "dealer" classを付与 
+ * - 10.drawnPlayerCardに "used" classを付与(最後のラウンドは不要(残りカード2枚時))
  * - 11.spotDealerCardとspotPlayerCardの値を更新
  */
 const playRound = () => {
-    if (storedCardArrObj && storedCardArrObj.length === 0)  {
+    if (storedCardDeckArrObj && globalAvailableCards === 0)  {
         console.log('No more card!! GAME OVER')
         // changeDisplayPage(resultPage, gamePage);
         return;
     }
 
-    const [dealerCard] = storedCardArrObj.splice(shuffleIndex(), 1);
-    const [playerCard] = storedCardArrObj.splice(shuffleIndex(), 1);
+    console.log("Available Cards...", globalAvailableCards)
+
+    let [drawnDealerCard] = storedCardDeckArrObj.splice(shuffleIndex(), 1);
+    let [drawnPlayerCard] = storedCardDeckArrObj.splice(shuffleIndex(), 1);
+
+    // Update available cards
+    globalAvailableCards = storedCardDeckArrObj.length;
+
+    // Update object roles
+    drawnDealerCard.roles = drawnDealerCard.roles[0];   // [0] dealer
+    drawnPlayerCard.roles = drawnPlayerCard.roles[1];   // [1] player
+
+    // Match drawn cards and DOM elements
+    const dealerCardEl = document.getElementById(drawnDealerCard.id);
+    const playerCardEl = document.getElementById(drawnPlayerCard.id);
+
+    // console.log("Match dealerCard", dealerCardEl);
+    // console.log("Match playerCard", playerCardEl);
 
     if (isDebug) {
-        console.log('dealerCard', dealerCard)
-        console.log('playerCard', playerCard)
+        console.log('drawnDealerCard', drawnDealerCard)
+        console.log('playerCard', drawnPlayerCard)
     }
 
-    updateDealerGameCardAndDealerPlayerRoundCards(dealerCard, playerCard);
-    updateGlobalCardRanks();
+    // Update UI
+    updateDealerGameCardAndDealerPlayerRoundCards(drawnDealerCard, drawnPlayerCard);
+    // updateGlobalCardRanks(drawnDealerCard.src, drawnPlayerCard.src);
 
-    if (storedCardArrObj.length >= 0) {
-        dealerCard.classList.add('dealer');
+    // Update UI
+    if (storedCardDeckArrObj.length >= 0) {
+        dealerCardEl.classList.add('dealer');
     }
     
-    if (storedCardArrObj.length > 1) {
-        // TODO: isUsed to be true here
-        // card.isUsed = true
-        playerCard.classList.add('drawn');
-    }
+    // if (storedCardDeckArrObj.length > 1) {
+    //     // TODO: isUsed to be true here
+    //     // card.isUsed = true
+    //     // playerCard.classList.add('drawn');
 
-    // Update
-    globalDealerCard = dealerCard;
-    globalPlayerCard = playerCard;
+    //     playerCardEl.classList.add('drawn');
+    // }
+
+
+    // Update data Use card rank to judge a game
+    globalDealerCardRank = drawnDealerCard;
+    globalPlayerCardRank = drawnPlayerCard;
+    
+    // Update data Use UI update add class and remove class
+    globalDealerCard = dealerCardEl;
+    globalPlayerCard = playerCardEl;
+
+    // Update data object status
+    drawnDealerCard.isUsed = true;
+    drawnPlayerCard.isUsed = true;
+
+    console.log("After updating cards...", drawnDealerCard, drawnPlayerCard)
+
+    console.log("Original deck", createInitialDeck.length)
+    console.log("Remaining card", globalAvailableCards)
 }
 
 /**
  * addUsedClass - 使ったカード要素に "used" classを付与
- * @param {object} dealerCard - dealerCard object (div.card-wrapper.dealer)
- * @param {object} playerCard - playerCard object (div.card-wrapper.used)
+ * @param {object} globalDealerCard - globalDealerCard object (div.card-wrapper.dealer)
+ * @param {object} globalPlayerCard - globalPlayerCard object (div.card-wrapper.used)
  */
-const addUsedClass = (dealerCard, playerCard) => {
-    if (!dealerCard || !playerCard) {
+const addUsedClass = (globalDealerCard, globalPlayerCard) => {
+    if (!globalDealerCard || !globalPlayerCard) {
         console.log('no card')
         return;
     }
 
-    // 最終ラウンドまで処理 (storedCardArrObj = 0 はゲームリセットの為、処理不要)
-    if (storedCardArrObj.length > 1) {
-        dealerCard.classList.remove('dealer');
-        playerCard.classList.remove('drawn');
+    // 最終ラウンドまで処理 (globalAvailableCards = 0 はゲームリセットの為、処理不要)
+    // Update UI
+    if (globalAvailableCards > 1) {
+        globalDealerCard.classList.remove('dealer');
 
-        dealerCard.classList.add('used');
-        playerCard.classList.add('used');
+        globalDealerCard.classList.add('used');
+        globalPlayerCard.classList.add('used');
     } 
 }
 
+// FIX: Comment is now different, please update
 /**
  * Reset Game Statement
  * 
@@ -304,7 +340,7 @@ const addUsedClass = (dealerCard, playerCard) => {
  * - globalPlayerCardRank = 0
  * - globalDealerCard = null (clean memory)
  * - globalPlayerCard = null (clean memory)
- * - storedCardArrObj = originalDeckCardList (52 length)
+ * - storedCardDeckArrObj = createInitialDeck (52 length)
  */
 const clearGameState = () => {
     streakCountList.forEach(count => count.textContent = 0);
@@ -322,20 +358,20 @@ const clearGameState = () => {
         page.classList.remove('page--result');
     }
 
-    globalDealerCardRank = 0;
-    globalPlayerCardRank = 0;
+    // globalDealerCardRank = 0;
+    // globalPlayerCardRank = 0;
 
     globalDealerCard = null;
     globalPlayerCard = null;
 
-    // storedCardDeck = Array.from(originalDeckCardList);
-    // storedCardArrObj = Object.values(cardArrObj);
-    console.log(storedCardArrObj)
+    storedCardDeckArrObj = Array.from(createInitialDeck()); // splice()で使用する為、Objectから配列へ変換
+    console.log("Stored cards:", storedCardDeckArrObj)
 
-    console.log('RELOAD...Initial Deck: ', storedCardArrObj.cardArrObj.length)
+    globalAvailableCards = storedCardDeckArrObj.length;
+
+    console.log('RELOAD...Initial Deck: ', globalAvailableCards)
     console.log('Game is cleared')
 }
-
 
 // Events
 ruleBtn.addEventListener('click', () => {
